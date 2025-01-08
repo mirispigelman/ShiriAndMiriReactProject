@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+h1{
+  color: #FF1900;
+}
+h3{
+ color:#FF0067
+}
+button{
+  color:#FF0067;
+  margin:10px;
+}
+form{
+  background-Color:#FF9800;
+  padding:30px;
+  border-Radius:20px;
+}

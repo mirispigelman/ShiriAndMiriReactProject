@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import { useState } from 'react'
+import fetchData from './FetchData';
 
 const SignUpPart2 = () => {
     //need to get the user name and the password from SignUp
@@ -41,16 +42,16 @@ const SignUpPart2 = () => {
         const { name, value } = e.target;
         setForm({ ...form, company: { ...form.company, [name]: value } });
     }
-    const HandleForm = (event) => {
+    const HandleForm  = async (event) => {
         event.preventDefault();
-            console.log(localStorage.getItem("currentUser"));
             //add new user to data base
-            const newUserData = form;
-            localStorage.setItem("currentUser", JSON.stringify(form.name));
-
-            console.log(newUserData);
-            //add to db.json
-            //go to your home page
+            try{
+                const response = await fetchData('users', 'POST',form);
+                console.log(response);
+                localStorage.setItem("currentUser", JSON.stringify(form.name));
+                //go to your home page
+            }
+            catch(e){console.error('Error fetching:', error);}
         }
     
     return (

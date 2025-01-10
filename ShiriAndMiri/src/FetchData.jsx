@@ -1,11 +1,22 @@
 import {useState,Link} from 'react' 
 
 import './App.css'
-  async function fetchData(navigateString){
-        const response = await fetch(`http://localhost:3000/${navigateString}`); 
-        const data = await response.json(); 
-        console.log(data);
+  async function fetchData(navigateString,methodType,dataContent=null) {
+    const options = {
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      method: methodType,
+      };
 
-        return data;
+      // Add the dataContent to the request body if it exists
+      if (dataContent !== null) {
+          options.body = JSON.stringify(dataContent);
+      }
+
+  const response = await fetch(`http://localhost:3000/${navigateString}`, options);
+  const data = await response.json();
+  console.log(data);
+  return data;
 }
 export default fetchData

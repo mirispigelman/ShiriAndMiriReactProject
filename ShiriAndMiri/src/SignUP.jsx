@@ -1,37 +1,39 @@
 import { useState } from "react";
-import './App.css'
-export default function SignUp() {
-    const [userNam, setUserNam] = useState('')
+import './App.css';
+import {Link, Navigate, Routes,Route} from 'react-router-dom';
+import FetchData from "./FetchData";
+const SignUp=()=> {
+    const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [verifyPassword, setVerifyPassword] = useState('')
 
 
-    function errorList(){
-        let errorList=[]
-
-        if (userNam===""||password===""|| verifyPassword===""){
-            errorList.push("All details must be complete");
+    const HandleForm = async (event) => {
+        event.preventDefault();
+        if (userName===""||password===""|| verifyPassword===""){
+            alert("All details must be complete");
+        }
+        if(password!==verifyPassword){
+            alert("the passwords are not the same");
         }
         ////need to find in the data base if the user exists 
-        
-        if(password!==verifyPassword){
-            errorList.push("the passwords are not the same");
-        }
-        return errorList;
-    }
-    const HandleForm = (event) => {
-        event.preventDefault();
-        let errLis=errorList();
-        if(errLis.length>0){
-           alert(errLis.join(","));
-           console.log({userNam,password});
-        }
-        else{
-            localStorage.setItem("currentUser", JSON.stringify(userNam));
-            console.log(localStorage.getItem("currentUser"));
-            //add new user to data base
-            //go to your home page
-        }
+        console.log("getData")
+            try{
+                const user = await FetchData(`users?username=${userName}||website=${password}'`);
+                if (user) {
+                    alert("userNmae or password is not avilable");
+                    return;
+                }
+                else{
+                    localStorage.setItem("currentUser", JSON.stringify(user.name));
+                    console.log(localStorage.getItem("currentUser"));
+                    //go to your signUp-part2 page
+
+                }
+            }catch(e){
+                console.error('Error fetching:', error);
+                alert('Error fetching data');
+            }
     }
     return (
         <>  
@@ -41,7 +43,7 @@ export default function SignUp() {
             type="text" 
             value={userNam}
             placeholder='Enter your userNam:'
-            onChange={(e) => setUserNam(e.target.value)}
+            onChange={(e) => setUserName(e.target.value)}
             />
             <br></br>
             <input
@@ -60,6 +62,9 @@ export default function SignUp() {
             <br></br>
             <button  type='submit'>Submit</button>
             </form>
+            <h4>already have an account? </h4>
+         { /*  <Link path="/login">Login</Link>*/}
         </>
     );
 }
+export default SignUp

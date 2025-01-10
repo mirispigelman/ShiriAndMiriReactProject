@@ -1,42 +1,57 @@
 import {useState,Link} from 'react' 
 import SignUp from './SignUP'
 import './App.css'
-export default function Login() {
-    const [userNam, setUserNam] = useState('')
+import FetchData from './FetchData'
+const Login=()=>{
+    const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
-
-    function errorList(){
-        let errorList=[]
-        if (userNam===""||password===""){
+    const HandleForm = async (event) => {
+        event.preventDefault();
+        if (userName===""||password===""){
             errorList.push("All details must be complete");
         }
         ////need to find in the data base if the user exists and check if the password matches
-        return errorList;
-    }
-    const HandleForm = (event) => {
-        event.preventDefault();
-        let errLis=errorList();
-        if(errLis.length>0){
-           alert(errLis.join(","));
-           console.log({userNam,password});
+        try{
+            console.log(`users?username=${userName}&website=${password}'`);
+            const user = await FetchData(`users?username=${userName}&website=${password}`); 
+            if (!user) {
+                 alert("User not found");
+                 return;
+            }
+            else{
+                localStorage.setItem("currentUser", JSON.stringify(user[0].name));
+                console.log(localStorage.getItem("currentUser"));
+            }
+                    // let todos = await FetchData(`todos?userId=${user.id}`)||[]; 
+                    // console.log(todos);
+                    // let albums = await FetchData(`albums?userId=${user.id}`)||[]; 
+                    // let photos = await FetchData(`photos?albumId=${albums[i].id}`)||[];
+                    // console.log(photos);
+                    // let comments = await FetchData('comments?'); 
+                    // let posts = await FetchData(`posts?userId=${user.id}`)||[]; 
+                    // console.log(posts);
+                    // console.log(user);
         }
-        else{
-            localStorage.setItem("currentUser", JSON.stringify(userNam));
-            console.log(localStorage.getItem("currentUser"));
-            //go to your home page
-        }
+         catch(error){
+                console.error('Error fetching:', error);
+                alert('Error fetching data');
+                return;
+         }
+        //go to your home page
+        
     }
     return (
         <>
+             Bret hildegard.org
             <h1>Log in</h1>
             <h3>welcome back!</h3>
 
             <form onSubmit={HandleForm}>
             <input
             type="text" 
-            value={userNam}
-            placeholder='Enter your full userNam:'
-            onChange={(e) => setUserNam(e.target.value)}
+            value={userName}
+            placeholder='Enter your userName:'
+            onChange={(e) => setUserName(e.target.value)}
             />
             <br></br>
             <input
@@ -49,7 +64,8 @@ export default function Login() {
             <button type='submit'>Submit</button>
             </form>
             <h4>new here? go to</h4>
-            {/*<Link><SignUp/></Link>*/}
+            {/* <Link><SignUp/></Link> */}
         </>
     )
 }
+export default Login

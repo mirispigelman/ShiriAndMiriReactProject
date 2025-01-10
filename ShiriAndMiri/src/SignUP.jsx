@@ -12,27 +12,26 @@ const SignUp=()=> {
         event.preventDefault();
         if (userName===""||password===""|| verifyPassword===""){
             alert("All details must be complete");
+            return;
         }
         if(password!==verifyPassword){
             alert("the passwords are not the same");
+            return;
         }
         ////need to find in the data base if the user exists 
         console.log("getData")
             try{
                 const user = await FetchData(`users?username=${userName}||website=${password}'`);
-                if (user) {
+                if (user[0]) {
                     alert("userNmae or password is not avilable");
                     return;
                 }
                 else{
-                    localStorage.setItem("currentUser", JSON.stringify(user.name));
-                    console.log(localStorage.getItem("currentUser"));
                     //go to your signUp-part2 page
-
                 }
             }catch(e){
                 console.error('Error fetching:', error);
-                alert('Error fetching data');
+                alert(`{Error fetching data ${e}}`);
             }
     }
     return (
@@ -41,7 +40,7 @@ const SignUp=()=> {
             <form onSubmit={HandleForm}>
             <input
             type="text" 
-            value={userNam}
+            value={userName}
             placeholder='Enter your userNam:'
             onChange={(e) => setUserName(e.target.value)}
             />
@@ -60,7 +59,7 @@ const SignUp=()=> {
                 onChange={(e) => setVerifyPassword(e.target.value)}
             />
             <br></br>
-            <button  type='submit'>Submit</button>
+            <button  type='submit'>press to finish the process</button>
             </form>
             <h4>already have an account? </h4>
          { /*  <Link path="/login">Login</Link>*/}

@@ -7,14 +7,11 @@ const Login=()=>{
     const [password, setPassword] = useState('')
     const HandleForm = async (event) => {
         event.preventDefault();
-        if (userName===""||password===""){
-            errorList.push("All details must be complete");
-        }
         ////need to find in the data base if the user exists and check if the password matches
         try{
             console.log(`users?username=${userName}&website=${password}'`);
             const user = await FetchData(`users?username=${userName}&website=${password}`); 
-            if (!user) {
+            if (!user[0]) {
                  alert("User not found");
                  return;
             }
@@ -52,6 +49,7 @@ const Login=()=>{
             value={userName}
             placeholder='Enter your userName:'
             onChange={(e) => setUserName(e.target.value)}
+            required
             />
             <br></br>
             <input
@@ -59,6 +57,7 @@ const Login=()=>{
                 value={password}
                 placeholder='Enter your password:'
                 onChange={(e) => setPassword(e.target.value)}
+                required
             />
             <br></br>
             <button type='submit'>Submit</button>

@@ -6,6 +6,7 @@ import {Link, Navigate, Routes,Route} from 'react-router-dom'
 
 import Login from './Login'
 import SignUp from './SignUP'
+import SignUpPart2 from './SignUp-part2'
 import { use } from 'react'
 function App() {
   
@@ -17,8 +18,9 @@ function App() {
   
   return (
     <>
-    <Login/>
-     {/*<SignUp/>*/}
+    {/* <Login/> */}
+     {/* <SignUp/> */}
+     <SignUpPart2/>
     </>
   )
 }

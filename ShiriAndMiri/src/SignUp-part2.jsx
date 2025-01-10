@@ -1,9 +1,30 @@
 import React from 'react'
 import './App.css'
+import { useState } from 'react'
 
 const SignUpPart2 = () => {
     //need to get the user name and the password from SignUp
-    const [form, setForm] = useState({});
+    const [form, setForm] = useState({
+        id: '',
+        name: '',
+        email: '',
+        phone: '',
+        adress: {
+            street: '',
+            suite: '',
+            city: '',
+            zipcode: '',
+            geo: {
+              lat: '',
+              lng: ''
+            }
+        },
+        company: {
+            companyName: '',
+            catchphrase: '',
+            business: '',
+        },
+    });
     const update = (e) => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
@@ -12,72 +33,63 @@ const SignUpPart2 = () => {
         const { name, value } = e.target;
         setForm({ ...form, adress: { ...form.adress, [name]: value } });
     }
+    const updateGoe = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, adress: { ...form.adress, geo: { ...form.adress.geo, [name]: value } }});
+    }
+    const updateCompany = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, company: { ...form.company, [name]: value } });
+    }
     const HandleForm = (event) => {
         event.preventDefault();
-         localStorage.setItem("currentUser", JSON.stringify(userNam));
             console.log(localStorage.getItem("currentUser"));
             //add new user to data base
-            const newUserData = {
-                id,
-                name,
-                email,
-                phone,
-                // address: {
-                //     street,
-                //     suite,
-                //     city,
-                //     zipcode,
-                //     geo: {
-                //         latitude,
-                //         longitude,
-                //     },
-                // },
-                // company: {
-                //     name: companyName,
-                //     catchphrase,
-                //     business,
-                // },
-            };
+            const newUserData = form;
+            localStorage.setItem("currentUser", JSON.stringify(form.name));
+
+            console.log(newUserData);
             //add to db.json
             //go to your home page
         }
     
     return (
         <>
+            <h3>please comlete the details</h3>
             <form onSubmit={HandleForm}>
                 <MyInput
-                    type="number"
+                    type="text"
                     name='id'
                     form={form}
                     placeholder="ID"
-                    onChange={update}
-                    required
+                    update={update}
                 />
                 <br />
                 <MyInput
                     type="text"
                     name='name'
-                    value={form}
+                    form={form}
                     placeholder="Name"
-                    onChange={update}
-                    required
+                    update={update}
+                    
                 />
                 <br />
                 <MyInput
                     type="email"
-                    value={email}
-                    name={email}
+                    name='email'
+                    form={form}
                     placeholder="Email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
+                    update={update}
+                    
                 />
                 <br />
                 <MyInput
                     type="text"
-                    value={phone}
+                    name='phone'
+                    form={form}
                     placeholder="Phone"
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
+                    update={update}
+                    
                 />
                 <br />
 
@@ -87,80 +99,80 @@ const SignUpPart2 = () => {
                     form={form.adress}
                     name='street'
                     placeholder="Street"
-                    onChange={updateAdress}
-                    required
+                    update={updateAdress}
+                    
                 />
                 <br />
                 <MyInput
                     type="text"
-                    value={form.adress}
+                    form={form.adress}
                     name="suite"
                     placeholder="Suite"
-                    onChange={(e) => setSuite(e.target.value)}
-                    required
+                    update={updateAdress}
+                    
                 />
                 <br />
                 <MyInput
                     type="text"
-                    value={form.adress}
+                    form={form.adress}
                     name="city"
                     placeholder="City"
-                    onChange={(e) => setCity(e.target.value)}
-                    required
+                    update={updateAdress}
+                    
                 />
                 <br />
                 <MyInput
                     type="text"
-                    value={form.adress}
+                    form={form.adress}
                     placeholder="Zipcode"
-                    onChange={(e) => setZipcode(e.target.value)}
-                    required
+                    update={updateAdress}
                 />
                 <br />
 
-                <h4>Geo</h4>
+                <h3>Geo</h3>
                 <MyInput
                     type="text"
-                    value={latitude}
+                    form={form.adress.geo}
+                    name='lat'
                     placeholder="Latitude"
-                    onChange={(e) => setLatitude(e.target.value)}
-                    required
+                    update={updateGoe}
                 />
                 <br />
                 <MyInput
                     type="text"
-                    value={longitude}
+                    form={form.adress.geo}
+                    name='lng'
                     placeholder="Longitude"
-                    onChange={(e) => setLongitude(e.target.value)}
-                    required
+                    update={updateGoe}
+                    
                 />
                 <br />
 
                 <h3>Company</h3>
                 <MyInput
                     type="text"
-                    form={form}
-                    name={'companyName'}
+                    form={form.company}
+                    name='companyName'
                     placeholder="Company Name"
-                    onChange={update}
-                    required
+                    update={updateCompany}
+                    
                 />
                 <br />
                 <MyInput
                     type="text"
-                    value={catchphrase}
+                    form={form.company}
+                    name='catchphrase'
                     placeholder="Catchphrase"
-                    onChange={(e) => setCatchphrase(e.target.value)}
-                    required
+                    update={updateCompany}
+                    
                 />
                 <br />
                 <MyInput
                     type="text"
-                    form={form}
+                    form={form.company}
                     name='business'
                     placeholder="Business"
-                    onChange={(e) => setBusiness(e.target.value)}
-                    required
+                    update={updateCompany}
                 />
                 <br />
                 <button type="submit">Submit</button>
@@ -169,14 +181,14 @@ const SignUpPart2 = () => {
     )
 }
 
-const MyInput = ({ form, name, type, update, placeholder, required }) => {
+const MyInput = ({ form, name, type, update, placeholder}) => {
     return <input
         type={type}
         name={name}
         value={form[name]}
         placeholder={placeholder}
         onChange={update}
-        required={required}
+        required
     />
 }
 export default SignUpPart2

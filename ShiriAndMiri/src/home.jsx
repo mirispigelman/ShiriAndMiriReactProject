@@ -5,7 +5,7 @@ import ShowInfo from "./showInfo";
 import { ContextUser } from "./ContextUser";
 const Home = () =>{
 const [showInfo,setShowInfo]=useState(false);
-const {user}=useContext(ContextUser);
+const {user,resetUser}=useContext(ContextUser);
 
 console.log(user);
 
@@ -13,7 +13,7 @@ return(<>
     <>
     <h1>Home</h1>
     <h3>{user.slice(1, -1)},Welcome back!</h3>
-    <button onClick={()=>{setuser("")/*go to login page*/}}>log out</button>
+    <button onClick={()=>{resetUser()/*go to login page*/}}>log out</button>
     <button onClick={()=>setShowInfo(!showInfo)}>{showInfo?"hide Info":"show Info"}</button>
     {showInfo&&<ShowInfo/>}
     {/* <Link to={'/todos'}>Todos</Link>

@@ -4,6 +4,8 @@ import { useState } from 'react'
 import fetchData from './FetchData';
 
 const SignUpPart2 = () => {
+    const {setUser}=useContext(ContextUser)
+    
     //need to get the user name and the password from SignUp
     const [form, setForm] = useState({
         id: '',
@@ -48,6 +50,7 @@ const SignUpPart2 = () => {
             try{
                 const response = await fetchData('users', 'POST',form);
                 console.log(response);
+                setUser(form.name);
                 localStorage.setItem("currentUser", JSON.stringify(form.name));
                 //go to your home page
             }

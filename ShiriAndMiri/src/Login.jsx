@@ -1,22 +1,25 @@
-import {useState,Link} from 'react' 
+import {useState,Link, useContext} from 'react' 
 import SignUp from './SignUP'
 import './App.css'
 import FetchData from './FetchData'
+import ContextUserProvider, { ContextUser } from './ContextUser'
 const Login=()=>{
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
+    const {setUser}=useContext(ContextUser)
     const HandleForm = async (event) => {
         event.preventDefault();
         ////need to find in the data base if the user exists and check if the password matches
         try{
             console.log(`users?username=${userName}&website=${password}'`);
-            const user = await FetchData(`users?username=${userName}&website=${password}`); 
-            if (!user[0]) {
+            const myUser = await FetchData(`users?username=${userName}&website=${password}`); 
+            if (!myUser[0]) {
                  alert("User not found");
                  return;
             }
             else{
-                localStorage.setItem("currentUser", JSON.stringify(user[0].name));
+                setUser(myUser[0].name);
+                localStorage.setItem("currentUser", JSON.stringify(myUser[0].name));
                 console.log(localStorage.getItem("currentUser"));
             }
                     // let todos = await FetchData(`todos?userId=${user.id}`)||[]; 

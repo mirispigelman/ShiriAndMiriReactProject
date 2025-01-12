@@ -7,13 +7,13 @@ import ContextUserProvider, { ContextUser } from './ContextUser'
 import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom'
 import home from './home';
 import { useNavigate } from "react-router-dom";
-const Albums=()=>{
+const Posts=()=>{
     const navigate = useNavigate();
     return(
         <>
         <button onClick={()=>navigate("/home")}>back to home</button>
-        <h1>Albums</h1>
+        <h1>Posts</h1>
         </>
     )
 }
-export default Albums;
+export default Posts;

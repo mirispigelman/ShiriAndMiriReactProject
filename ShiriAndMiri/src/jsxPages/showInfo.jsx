@@ -2,12 +2,14 @@
 import { useContext ,useState,useEffect} from "react";
 import fetchData from "./FetchData";
 import { ContextUser } from "./ContextUser";
+import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom'
+
 
 const ShowInfo=()=>{
     const [data,setData]=useState([]);
     const [loading,setLoading]=useState(true);
     const {user}=useContext(ContextUser);
-
+    
     useEffect(() => {
         async function fetchUserData() {
             try{
@@ -24,12 +26,13 @@ const ShowInfo=()=>{
         }
         fetchUserData();
     },[]);
+    console.log(user);
     console.log(data);
     if (loading) return <p>Loading...</p>;
     return(
         <div>
               {Object.entries(data).map(([key, value])=>(
-                <ul>
+                <ul key={key}>
                   <strong>{key}:</strong>
                   {typeof value === 'object' ? (
                     <ul>

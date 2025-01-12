@@ -61,3 +61,8 @@ ul{
   border-Radius:20px;
   text-align: left;
 }
+.btnNav{
+  margin:10px;
+  color:#FF1900;
+  background-color: #FF9800;
+}

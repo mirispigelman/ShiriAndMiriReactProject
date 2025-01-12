@@ -1,7 +1,7 @@
-import {useState,Link} from 'react' 
+
 
 import '../App.css'
-  async function fetchData(navigateString,methodType,dataContent=null) {
+  async function fetchData(navigateString,methodType="GET",dataContent=null) {
     const options = {
       headers: {
           'Content-Type': 'application/json',

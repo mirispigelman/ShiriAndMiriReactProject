@@ -51,9 +51,11 @@ const SignUpPart2 = () => {
                 const response = await fetchData('users', 'POST',form);
                 console.log(response);
                 setUser(form.name);
+                
+                //save the user name in local storage
                 localStorage.setItem("currentUser", JSON.stringify(form.name));
-                navigate("/home");
                 //go to your home page
+                navigate("/home");
             }
             catch(e){console.error('Error fetching:', error);}
         }

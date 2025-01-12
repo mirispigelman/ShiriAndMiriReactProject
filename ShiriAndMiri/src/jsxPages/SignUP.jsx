@@ -49,7 +49,7 @@ const SignUp=()=> {
             <input
             type="text" 
             value={userName}
-            placeholder='Enter your userNam:'
+            placeholder='Enter your userName:'
             onChange={(e) => setUserName(e.target.value)}
             />
             <br></br>
@@ -74,7 +74,7 @@ const SignUp=()=> {
             <p>
         
         <button onClick={goToLogin} style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
-        Already have an account?
+        Already have an account? go to login
         </button>
       </p>
          { /*  <Link path="/login">Login</Link>*/}

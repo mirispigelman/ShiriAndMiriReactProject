@@ -11,7 +11,7 @@ const Login=()=>{
     const navigate = useNavigate();
     const goToSignUp = () => {
         navigate("/signUp");
-      };
+    };
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const {setUser}=useContext(ContextUser)
@@ -28,10 +28,11 @@ const Login=()=>{
             else{
                 setUser(myUser[0].name);
                 localStorage.setItem("currentUser", JSON.stringify(myUser[0].name));
+                localStorage.setItem("currentUserId", JSON.stringify(myUser[0].id));
+
                 console.log(localStorage.getItem("currentUser"));
                 navigate("/home");
             }
-                    // let todos = await FetchData(`todos?userId=${user.id}`)||[]; 
                     // console.log(todos);
                     // let albums = await FetchData(`albums?userId=${user.id}`)||[]; 
                     // let photos = await FetchData(`photos?albumId=${albums[i].id}`)||[];
@@ -75,12 +76,10 @@ const Login=()=>{
             <button type='submit'>Submit</button>
             </form>
             {/* <h4> <Link to="/SignUp">new here? go to</Link></h4> */}
-            
-        <button onClick={goToSignUp} style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
-        new here? go to
+           
+        <button onClick={goToSignUp} style={{ color: "blue", textDecoration: "none", background: "none", border: "none", cursor: "pointer" }}>
+        new here? go to signUp
         </button>
-      
-            {/* <h4><Link to={'/SignUp'}>new here? go to</Link></h4>  */}
         </>
     )
 }

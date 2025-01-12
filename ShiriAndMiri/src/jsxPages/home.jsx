@@ -1,7 +1,7 @@
 import { useContext ,useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import fetchData from "./FetchData";
-import ShowInfo from "./showInfo";
+import userInformation from "./userInformation";
 import { ContextUser } from "./ContextUser";
 const Home = () =>{
 const [showInfo,setShowInfo]=useState(false);

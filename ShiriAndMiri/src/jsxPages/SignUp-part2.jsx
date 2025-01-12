@@ -1,5 +1,5 @@
-import React from 'react'
-import './App.css'
+import React ,{useContext,ContextUser} from 'react'
+import '../App.css'
 import { useState } from 'react'
 import fetchData from './FetchData';
 
@@ -52,6 +52,7 @@ const SignUpPart2 = () => {
                 console.log(response);
                 setUser(form.name);
                 localStorage.setItem("currentUser", JSON.stringify(form.name));
+                navigate("/home");
                 //go to your home page
             }
             catch(e){console.error('Error fetching:', error);}

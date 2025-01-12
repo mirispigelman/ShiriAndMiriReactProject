@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import {Link, Navigate, Routes,Route} from 'react-router-dom'
+import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom'
 
-import Login from './Login'
-import SignUp from './SignUP'
-import SignUpPart2 from './SignUp-part2'
-import ContextUserProvider from './ContextUser'
+import Login from './jsxPages/Login'
+import SignUp from './jsxPages/SignUP'
+import SignUpPart2 from './jsxPages/SignUp-part2'
+import ContextUserProvider from './jsxPages/ContextUser'
 import { use } from 'react'
 function App() {
   
@@ -19,11 +19,7 @@ function App() {
   
   return (
     <>
-    <ContextUserProvider>
-      <Login/>
-     {/* <SignUp/> */} 
-     {/* <SignUpPart2/> */}
-     </ContextUserProvider>
+    <Outlet/>
     </>
   )
 }

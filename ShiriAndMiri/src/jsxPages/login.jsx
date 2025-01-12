@@ -1,9 +1,17 @@
-import {useState,Link, useContext} from 'react' 
+import {useState, useContext} from 'react' 
 import SignUp from './SignUP'
-import './App.css'
+import '../App.css'
 import FetchData from './FetchData'
 import ContextUserProvider, { ContextUser } from './ContextUser'
+import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom'
+import home from './home';
+import { useNavigate } from "react-router-dom";
+
 const Login=()=>{
+    const navigate = useNavigate();
+    const goToSignUp = () => {
+        navigate("/signUp");
+      };
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const {setUser}=useContext(ContextUser)
@@ -21,6 +29,7 @@ const Login=()=>{
                 setUser(myUser[0].name);
                 localStorage.setItem("currentUser", JSON.stringify(myUser[0].name));
                 console.log(localStorage.getItem("currentUser"));
+                navigate("/home");
             }
                     // let todos = await FetchData(`todos?userId=${user.id}`)||[]; 
                     // console.log(todos);
@@ -65,8 +74,13 @@ const Login=()=>{
             <br></br>
             <button type='submit'>Submit</button>
             </form>
-            <h4>new here? go to</h4>
-            {/* <Link><SignUp/></Link> */}
+            {/* <h4> <Link to="/SignUp">new here? go to</Link></h4> */}
+            
+        <button onClick={goToSignUp} style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
+        new here? go to
+        </button>
+      
+            {/* <h4><Link to={'/SignUp'}>new here? go to</Link></h4>  */}
         </>
     )
 }

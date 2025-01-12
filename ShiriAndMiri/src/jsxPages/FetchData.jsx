@@ -1,6 +1,6 @@
 import {useState,Link} from 'react' 
 
-import './App.css'
+import '../App.css'
   async function fetchData(navigateString,methodType,dataContent=null) {
     const options = {
       headers: {

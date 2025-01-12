@@ -1,13 +1,21 @@
 import { useState } from "react";
-import './App.css';
+import '../App.css';
 import {Link, Navigate, Routes,Route} from 'react-router-dom';
 import FetchData from "./FetchData";
+import { useNavigate } from "react-router-dom";
 const SignUp=()=> {
+    const navigate = useNavigate();
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [verifyPassword, setVerifyPassword] = useState('')
 
-
+    const goToLogin = () => {
+        navigate("/login");
+      };
+      const goToSignUpPart2 = () => {
+        navigate("/signUpPart2");
+      };
+    
     const HandleForm = async (event) => {
         event.preventDefault();
         if (userName===""||password===""|| verifyPassword===""){
@@ -59,9 +67,16 @@ const SignUp=()=> {
                 onChange={(e) => setVerifyPassword(e.target.value)}
             />
             <br></br>
-            <button  type='submit'>press to finish the process</button>
+            <button  onClick={goToSignUpPart2} type='submit'>press to finish the process</button>
+
             </form>
-            <h4>already have an account? </h4>
+            
+            <p>
+        
+        <button onClick={goToLogin} style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
+        Already have an account?
+        </button>
+      </p>
          { /*  <Link path="/login">Login</Link>*/}
         </>
     );

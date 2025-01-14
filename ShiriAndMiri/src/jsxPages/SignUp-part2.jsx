@@ -1,14 +1,15 @@
-import React ,{useContext,ContextUser} from 'react'
+import React, { useContext } from 'react'
 import '../App.css'
 import { useState } from 'react'
-import fetchData from './FetchData';
+import fetchData from '../service/FetchData.js';
+import { ContextUser } from './ContextUser';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPart2 = () => {
-    const {setUser}=useContext(ContextUser)
-    
+    const { setUser } = useContext(ContextUser)
+    const navigate = useNavigate();
     //need to get the user name and the password from SignUp
     const [form, setForm] = useState({
-        id: '',
         name: '',
         email: '',
         phone: '',
@@ -18,8 +19,8 @@ const SignUpPart2 = () => {
             city: '',
             zipcode: '',
             geo: {
-              lat: '',
-              lng: ''
+                lat: '',
+                lng: ''
             }
         },
         company: {
@@ -38,47 +39,46 @@ const SignUpPart2 = () => {
     }
     const updateGoe = (e) => {
         const { name, value } = e.target;
-        setForm({ ...form, adress: { ...form.adress, geo: { ...form.adress.geo, [name]: value } }});
+        setForm({ ...form, adress: { ...form.adress, geo: { ...form.adress.geo, [name]: value } } });
     }
     const updateCompany = (e) => {
         const { name, value } = e.target;
         setForm({ ...form, company: { ...form.company, [name]: value } });
     }
-    const HandleForm  = async (event) => {
+    const HandleForm = async (event) => {
         event.preventDefault();
-            //add new user to data base
-            try{
-                const response = await fetchData('users', 'POST',form);
-                console.log(response);
-                setUser(form.name);
-                
-                //save the user name in local storage
-                localStorage.setItem("currentUser", JSON.stringify(form.name));
-                //go to your home page
-                navigate("/home");
-            }
-            catch(e){console.error('Error fetching:', error);}
+        //add new user to data base
+        try {
+            const response = await fetchData('users', 'POST', form);
+            console.log(response);
+            setUser(response);
+            //save the user name in local storage
+            localStorage.setItem("currentUser", JSON.stringify(response.id));
+            //go to your home page
+            navigate(`/users/${response.id}/home`);
         }
-    
+        catch (e) { console.error('Error fetching:', error); }
+    }
+
     return (
         <>
             <h3>please comlete the details</h3>
             <form onSubmit={HandleForm}>
-                <MyInput
+                {/* <MyInput
                     type="text"
                     name='id'
                     form={form}
                     placeholder="ID"
                     update={update}
                 />
-                <br />
+                <br /> */}
                 <MyInput
                     type="text"
                     name='name'
                     form={form}
                     placeholder="Name"
                     update={update}
-                    
+
                 />
                 <br />
                 <MyInput
@@ -87,7 +87,7 @@ const SignUpPart2 = () => {
                     form={form}
                     placeholder="Email"
                     update={update}
-                    
+
                 />
                 <br />
                 <MyInput
@@ -96,7 +96,7 @@ const SignUpPart2 = () => {
                     form={form}
                     placeholder="Phone"
                     update={update}
-                    
+
                 />
                 <br />
 
@@ -107,7 +107,7 @@ const SignUpPart2 = () => {
                     name='street'
                     placeholder="Street"
                     update={updateAdress}
-                    
+
                 />
                 <br />
                 <MyInput
@@ -116,7 +116,7 @@ const SignUpPart2 = () => {
                     name="suite"
                     placeholder="Suite"
                     update={updateAdress}
-                    
+
                 />
                 <br />
                 <MyInput
@@ -125,7 +125,7 @@ const SignUpPart2 = () => {
                     name="city"
                     placeholder="City"
                     update={updateAdress}
-                    
+
                 />
                 <br />
                 <MyInput
@@ -151,7 +151,7 @@ const SignUpPart2 = () => {
                     name='lng'
                     placeholder="Longitude"
                     update={updateGoe}
-                    
+
                 />
                 <br />
 
@@ -162,7 +162,7 @@ const SignUpPart2 = () => {
                     name='companyName'
                     placeholder="Company Name"
                     update={updateCompany}
-                    
+
                 />
                 <br />
                 <MyInput
@@ -171,7 +171,7 @@ const SignUpPart2 = () => {
                     name='catchphrase'
                     placeholder="Catchphrase"
                     update={updateCompany}
-                    
+
                 />
                 <br />
                 <MyInput
@@ -188,14 +188,14 @@ const SignUpPart2 = () => {
     )
 }
 
-const MyInput = ({ form, name, type, update, placeholder}) => {
+const MyInput = ({ form, name, type, update, placeholder }) => {
     return <input
         type={type}
         name={name}
         value={form[name]}
         placeholder={placeholder}
         onChange={update}
-        required
+    // required
     />
 }
 export default SignUpPart2

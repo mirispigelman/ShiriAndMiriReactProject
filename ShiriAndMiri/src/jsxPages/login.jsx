@@ -1,10 +1,8 @@
 import {useState, useContext} from 'react' 
-import SignUp from './SignUP'
 import '../App.css'
-import FetchData from './FetchData'
+import fetchData from '../service/FetchData.js'
 import ContextUserProvider, { ContextUser } from './ContextUser'
 import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom'
-import home from './home';
 import { useNavigate } from "react-router-dom";
 
 const Login=()=>{
@@ -20,18 +18,16 @@ const Login=()=>{
         ////need to find in the data base if the user exists and check if the password matches
         try{
             console.log(`users?username=${userName}&website=${password}'`);
-            const myUser = await FetchData(`users?username=${userName}&website=${password}`); 
+            const myUser = await fetchData(`users?username=${userName}&website=${password}`); 
             if (!myUser[0]) {
                  alert("User not found");
                  return;
             }
             else{
-                setUser(myUser[0].name);
-                localStorage.setItem("currentUser", JSON.stringify(myUser[0].name));
-                localStorage.setItem("currentUserId", JSON.stringify(myUser[0].id));
-
+                setUser(myUser[0]);
+                localStorage.setItem("currentUser", JSON.stringify(myUser[0].id));
                 console.log(localStorage.getItem("currentUser"));
-                navigate("/home");
+                navigate(`/users/${myUser[0].id}/home`);
             }
                     // console.log(todos);
                     // let albums = await FetchData(`albums?userId=${user.id}`)||[]; 

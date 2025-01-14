@@ -91,113 +91,198 @@
         "catchPhrase": "User-centric fault-tolerant solution",
         "bs": "revolutionize end-to-end systems"
       }
+    },
+    {
+      "id": "",
+      "name": "h",
+      "email": "",
+      "phone": "",
+      "adress": {
+        "street": "t",
+        "suite": "",
+        "city": "",
+        "zipcode": "",
+        "geo": {
+          "lat": "123",
+          "lng": ""
+        }
+      },
+      "company": {
+        "companyName": "",
+        "catchphrase": "",
+        "business": ""
+      }
+    },
+    {
+      "id": "",
+      "name": "s",
+      "email": "",
+      "phone": "s",
+      "adress": {
+        "street": "hh",
+        "suite": "ff",
+        "city": "",
+        "zipcode": "",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "company": {
+        "companyName": "",
+        "catchphrase": "",
+        "business": ""
+      }
+    },
+    {
+      "id": "",
+      "name": "aa",
+      "email": "aa2aaa@hhhh",
+      "phone": "rddd",
+      "adress": {
+        "street": "ddd",
+        "suite": "ddd",
+        "city": "ddd",
+        "zipcode": "",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        },
+        "": "dd"
+      },
+      "company": {
+        "companyName": "",
+        "catchphrase": "",
+        "business": ""
+      }
+    },
+    {
+      "id": "a936",
+      "name": "ss",
+      "email": "",
+      "phone": "sdd",
+      "adress": {
+        "street": "",
+        "suite": "",
+        "city": "",
+        "zipcode": "",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "company": {
+        "companyName": "",
+        "catchphrase": "",
+        "business": ""
+      }
     }
   ],
   "todos": [
     {
-      "userId": 1,
-      "id": "1",
-      "title": "delectus aut autem",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": "2",
-      "title": "quis ut nam facilis et officia qui",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": "3",
-      "title": "fugiat veniam minus",
-      "completed": false
-    },
-    {
-      "userId": 1,
+      "userId": "1",
       "id": "4",
       "title": "et porro tempora",
-      "completed": true
+      "completed": false
     },
     {
-      "userId": 2,
+      "userId": "2",
       "id": "26",
       "title": "aliquam aut quasi",
       "completed": true
     },
     {
-      "userId": 2,
+      "userId": "2",
       "id": "27",
       "title": "veritatis pariatur delectus",
       "completed": true
     },
     {
-      "userId": 2,
+      "userId": "2",
       "id": "28",
       "title": "nesciunt totam sit blanditiis sit",
       "completed": false
     },
     {
-      "userId": 2,
+      "userId": "2",
       "id": "29",
       "title": "laborum aut in quam",
       "completed": false
+    },
+    {
+      "id": "2170",
+      "userId": "1",
+      "title": "smile",
+      "completed": false
+    },
+    {
+      "id": "5d5e",
+      "userId": "1",
+      "title": "hug daddy",
+      "completed": true
+    },
+    {
+      "id": "b30c",
+      "userId": "1",
+      "title": "kiss mammy",
+      "completed": true
     }
   ],
   "posts": [
     {
-      "userId": 1,
-      "id": "1",
-      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-    },
-    {
-      "userId": 1,
+      "userId": "1",
       "id": "2",
       "title": "qui est esse",
       "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+    },
+    {
+      "id": "ded7",
+      "userId": "1",
+      "title": "ski",
+      "body": "so much funnn"
     }
   ],
   "albums": [
     {
-      "userId": 1,
+      "userId": "1",
       "id": "1",
       "title": "quidem molestiae enim"
     },
     {
-      "userId": 1,
+      "userId": "1",
       "id": "2",
       "title": "sunt qui excepturi placeat culpa"
     },
     {
-      "userId": 1,
+      "userId": "1",
       "id": "3",
       "title": "omnis laborum odio"
     }
   ],
   "comments": [
     {
-      "postId": 1,
+      "postId": null,
       "id": "1",
       "name": "id labore ex et quam laborum",
       "email": "Eliseo@gardner.biz",
       "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
     },
     {
-      "postId": 1,
+      "postId": null,
       "id": "2",
       "name": "quo vero reiciendis velit similique earum",
       "email": "Jayne_Kuhic@sydney.com",
       "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
     },
     {
-      "postId": 1,
+      "postId": null,
       "id": "3",
       "name": "odio adipisci rerum aut animi",
       "email": "Nikita@garfield.biz",
       "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
     },
     {
-      "postId": 1,
+      "postId": null,
       "id": "4",
       "name": "alias odio sit",
       "email": "Lew@alysha.tv",
@@ -206,28 +291,28 @@
   ],
   "photos": [
     {
-      "albumId": 1,
+      "albumId": "1",
       "id": "1",
       "title": "accusamus beatae ad facilis cum similique qui sunt",
       "url": "https://via.placeholder.com/600/92c952",
       "thumbnailUrl": "https://via.placeholder.com/150/92c952"
     },
     {
-      "albumId": 1,
+      "albumId": "1",
       "id": "2",
       "title": "reprehenderit est deserunt velit ipsam",
       "url": "https://via.placeholder.com/600/771796",
       "thumbnailUrl": "https://via.placeholder.com/150/771796"
     },
     {
-      "albumId": 1,
+      "albumId": "1",
       "id": "3",
       "title": "officia porro iure quia iusto qui ipsa ut modi",
       "url": "https://via.placeholder.com/600/24f355",
       "thumbnailUrl": "https://via.placeholder.com/150/24f355"
     },
     {
-      "albumId": 1,
+      "albumId": "1",
       "id": "4",
       "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
       "url": "https://via.placeholder.com/600/d32776",

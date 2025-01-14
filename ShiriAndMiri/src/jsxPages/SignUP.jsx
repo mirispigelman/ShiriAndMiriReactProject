@@ -1,20 +1,13 @@
 import { useState } from "react";
 import '../App.css';
-import {Link, Navigate, Routes,Route} from 'react-router-dom';
-import FetchData from "./FetchData";
+import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom';
+import fetchData from "../service/FetchData.js";
 import { useNavigate } from "react-router-dom";
 const SignUp=()=> {
     const navigate = useNavigate();
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [verifyPassword, setVerifyPassword] = useState('')
-
-    const goToLogin = () => {
-        navigate("/login");
-      };
-      const goToSignUpPart2 = () => {
-        navigate("/signUpPart2");
-      };
     
     const HandleForm = async (event) => {
         event.preventDefault();
@@ -29,13 +22,15 @@ const SignUp=()=> {
         ////need to find in the data base if the user exists 
         console.log("getData")
             try{
-                const user = await FetchData(`users?username=${userName}||website=${password}'`);
+                const user = await fetchData(`users?username=${userName}&&website=${password}`);
+                console.log(user)
                 if (user[0]) {
                     alert("userNmae or password is not avilable");
                     return;
                 }
                 else{
                     //go to your signUp-part2 page
+                     navigate("/signUpPart2");
                 }
             }catch(e){
                 console.error('Error fetching:', error);
@@ -67,17 +62,16 @@ const SignUp=()=> {
                 onChange={(e) => setVerifyPassword(e.target.value)}
             />
             <br></br>
-            <button  onClick={goToSignUpPart2} type='submit'>press to finish the process</button>
+            <button  onClick={HandleForm} type='submit'>press to finish the process</button>
 
             </form>
             
             <p>
         
-        <button onClick={goToLogin} style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
+        <button onClick={()=>{navigate("/login")}} style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
         Already have an account? go to login
         </button>
-      </p>
-         { /*  <Link path="/login">Login</Link>*/}
+         </p>
         </>
     );
 }

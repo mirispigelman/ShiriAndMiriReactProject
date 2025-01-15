@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                     { path: 'todos', element: <Todos /> },
                     {
                         path: 'albums', element: <Albums />, children: [
-                            { path: ':id/photos', element: <Photos /> },
+                            { path: ':albumId/photos', element: <Photos /> },
                         ]
                     },
                     {

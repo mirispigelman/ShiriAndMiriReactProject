@@ -73,7 +73,7 @@ const Login=()=>{
             </form>
             {/* <h4> <Link to="/SignUp">new here? go to</Link></h4> */}
            
-        <button onClick={goToSignUp} style={{ color: "blue", textDecoration: "none", background: "none", border: "none", cursor: "pointer" }}>
+        <button onClick={()=>navigate("/signUp")} style={{ color: "blue", textDecoration: "none", background: "none", border: "none", cursor: "pointer" }}>
         new here? go to signUp
         </button>
         </>

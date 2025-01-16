@@ -1,7 +1,6 @@
 
 
 async function fetchData(navigateString, methodType = "GET", dataContent = null) {
-  console.log(`http://localhost:3000/${navigateString}`);
   const options = {
     headers: {
       'Content-Type': 'application/json',

@@ -10,23 +10,39 @@ import UpdatePost from "./updatePost.jsx";
 import AddPost from "./addPost.jsx";
 import handleDelete from "../../service/handleDelete.js";
 const Posts=()=>{
+    const navigate=useNavigate()
     const { user } = useContext(ContextUser);
     const [data, setData] = useState([]);
     const [UpdateactivePostId, setUpdateactivePostId] = useState(null);
     const [showBody, setShowBody] = useState(null);
-
     const [addNew, setAddNew] = useState(false);
-
+    const [openPostId, setOpenPostId] = useState(null);
     const [searchType, setSearchType] = useState('all');
     const [searchValue, setSearchValue] = useState('');
+
+    const [style, setStyle] = useState(null);
     useEffect(() => {
         async function getPosts() {
-            let todos = await fetchData(`posts?userId=${user.id}`) || [];
-            setData(todos);
+            let posts = await fetchData(`posts`) || [];
+            setData(posts);
         }
         getPosts();
     }, []);
 
+    const showComments = (postId) => {
+        if(openPostId === postId) return;
+        navigate(`${postId}/comments`);
+        setOpenPostId(openPostId === postId ? null : postId);
+        setStyle(postId)
+    };
+    const deletePost = (id) => {
+        if(id!=user.id) {
+            alert("you can't delete others posts");
+        }
+        else{
+            handleDelete(id, setData, 'posts');
+        }
+    }
     return(
         <>
         <h1>Posts</h1>
@@ -38,46 +54,61 @@ const Posts=()=>{
             <SearchPosts searchType={searchType} searchValue={searchValue} setSearchType={setSearchType} setSearchValue={setSearchValue} page='posts'
              />
             <div className="container">
-                {data.filter(x => searchType == "all" || x[searchType] == searchValue).map((todo, index) => {
-                   
+                {data.filter((post)=>{
+                    if (searchType === 'mine') {
+                        return post.userId === user.id;
+                    }
+                    return searchType == "all" || post[searchType] == searchValue
+                }
+                ).map((post) => {
                     return (
-                        <div key={todo.id} className="line">
-                            <strong>{index + 1}</strong>
+                        <div key={post.id} className={style === post.id ? 'on' : 'line'}>
+                            <strong>{post.id}</strong>
                             <br />
-                            {todo.title}
+                            {post.title}
                             <br />
-                            <button onClick={() => handleDelete(todo.id, setData, 'posts')}>delete</button>
-                            <button onClick={() => setUpdateactivePostId(todo.id)}>edit content</button>
-                            
-                            <button onClick={() => setShowBody(todo.id)}>show content</button>
-                            {showBody === todo.id && (
+                            <button onClick={() => deletePost(post.userId)}>delete</button>
+                            <button onClick={() => setUpdateactivePostId(post.id)}>edit content</button>
+                            <button onClick={() => showComments(post.id)}>
+                            Show Comments
+                            </button>
+                            <button onClick={() => setShowBody(post.id)}>show content</button>
+                            {showBody === post.id && (
                                 <>
-                                    <div>
-                                        {todo.body}
-                                    </div>
+                                    <br />
+                                        {post.body}
+
+                                    <br />
                                     <button onClick={() => setShowBody(null)}>Close</button>
                                 </>
                             )}
                         
-                            {UpdateactivePostId === todo.id && (
+                            {UpdateactivePostId === post.id && (
                                 <>
                                     <div>
                                         <UpdatePost
-                                            title={todo.title}
+                                            title={post.title}
                                             setData={setData}
-                                            id={todo.id}
+                                            id={post.id}
                                             data={data}
-                                            body={todo.body}
+                                            body={post.body}
                                         />
                                     </div>
                                     <button onClick={() => setUpdateactivePostId(null)}>Close</button>
                                 </>
                             )}
-                        </div>
+                             {openPostId === post.id && (
+                                <>
+                                <Outlet /> 
+                                
+                                <button onClick={() => {setOpenPostId(null); setStyle(null)}}>Close</button>
+                                </>
+                             )                            
+                             }
+                       </div>
                     )
                 })}
-            </div>
-        <Outlet />
+           </div>
         </>
     )
 }

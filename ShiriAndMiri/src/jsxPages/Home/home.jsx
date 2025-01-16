@@ -3,21 +3,29 @@ import '../../App.css'
 import { Outlet } from 'react-router-dom'
 import { ContextUser } from "../ContextUser";
 import { useNavigate } from "react-router-dom"
+import fetchData from "../../service/FetchData";
 
 const Home = () => {
     const navigate = useNavigate();
 
-    const { user, resetUser } = useContext(ContextUser);
+    const { user, resetUser , setUser} = useContext(ContextUser);
     
+    useEffect(() => {
+        if (!user || localStorage.getItem("currentUser") === "") {
+            navigate("/login", { replace: true });
+        }
+        // else{
+        //     setUser(()=>fetchData(`users/${user.id}`));
+        // }
+    }, [user, navigate]);
+
+
     function logout() {
         resetUser();
-        navigate("/login");
+        navigate("/login", { replace: true });
     }
-    console.log(user);
-
     return (<>
         <>
-            <h1>Home</h1>
             <h3>{user.name},Welcome back!</h3>
             <button className="btnNav" onClick={() => navigate(`home`)}>showInfo</button>
             <button className="btnNav" onClick={() => navigate(`albums`)}>Albums</button>

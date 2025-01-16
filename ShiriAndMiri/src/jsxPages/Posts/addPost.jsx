@@ -23,7 +23,7 @@ const AddPost = ({ setData }) => {
              <br />
             <input placeholder="title" value={newData.title} onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))} />
             <br />
-            <input placeholder="body" value={newData.body} onChange={(e) => setNewData(prev => ({ ...prev, body: e.target.value }))} />
+            <textarea placeholder="body" value={newData.body} onChange={(e) => setNewData(prev => ({ ...prev, body: e.target.value }))} />
             <br />
             <button onClick={handlAdd}>add</button>
         </>

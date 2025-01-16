@@ -15,6 +15,7 @@ const Todos = () => {
     const [addNew, setAddNew] = useState(false);
 
     const [sortType, setSortType] = useState("id");
+    
     const [searchType, setSearchType] = useState('all');
     const [searchValue, setSearchValue] = useState('');
     useEffect(() => {
@@ -57,17 +58,18 @@ const Todos = () => {
             <SearchTodos searchType={searchType} searchValue={searchValue} setSearchType={setSearchType} setSearchValue={setSearchValue} page='todos'
              />
             <div className="container">
-                {data.sort((a, b) => sortBy(a, b, sortType)).filter(x => searchType == "all" || x[searchType] == searchValue).map((todo, index) => {
+                {data.sort((a, b) => sortBy(a, b, sortType)).filter(x => searchType == "all" || x[searchType] == searchValue).map((todo) => {
                    
                     return (
                         <div key={todo.id} className="line">
-                            <strong>{index + 1}</strong>
                             <input
                                 type="checkbox"
                                 checked={todo.completed}
                                 onChange={() => handleCheckboxToggle(todo)}
 
                             />
+                            <strong>{todo.id}</strong>
+                    
                             <br />
                             <button onClick={() => handleDelete(todo.id, setData, 'todos')}>delete</button>
                             <button onClick={() => setActiveTodoId(todo.id)}>edit content</button>

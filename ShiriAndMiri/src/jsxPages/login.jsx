@@ -7,9 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const Login=()=>{
     const navigate = useNavigate();
-    const goToSignUp = () => {
-        navigate("/signUp");
-    };
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const {setUser}=useContext(ContextUser)
@@ -19,6 +16,7 @@ const Login=()=>{
         try{
             console.log(`users?username=${userName}&website=${password}'`);
             const myUser = await fetchData(`users?username=${userName}&website=${password}`); 
+            console.log(myUser);
             if (!myUser[0]) {
                  alert("User not found");
                  return;
@@ -29,14 +27,6 @@ const Login=()=>{
                 console.log(localStorage.getItem("currentUser"));
                 navigate(`/users/${myUser[0].id}/home`);
             }
-                    // console.log(todos);
-                    // let albums = await FetchData(`albums?userId=${user.id}`)||[]; 
-                    // let photos = await FetchData(`photos?albumId=${albums[i].id}`)||[];
-                    // console.log(photos);
-                    // let comments = await FetchData('comments?'); 
-                    // let posts = await FetchData(`posts?userId=${user.id}`)||[]; 
-                    // console.log(posts);
-                    // console.log(user);
         }
          catch(error){
                 console.error('Error fetching:', error);

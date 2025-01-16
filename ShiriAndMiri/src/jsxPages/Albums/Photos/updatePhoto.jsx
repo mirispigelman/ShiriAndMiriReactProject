@@ -33,10 +33,10 @@ const UpdatePhoto = ({id ,url, thumbnailUrl,title, setData }) => {
             <button onClick={()=>handleUpdate('title')}>update tiltle</button>
 
             <br />
-            <input  name={'url'} value={newForm.body} onChange={handleChange}></input>
+            <input  name={'url'} value={newForm.url} onChange={handleChange}></input>
             <button onClick={()=>handleUpdate('url')}>update url</button>
             <br />
-            <input  name={'thumbnailUrl'} value={newForm.body} onChange={handleChange}></input>
+            <input  name={'thumbnailUrl'} value={newForm.thumbnailUrl} onChange={handleChange}></input>
             <button onClick={()=>handleUpdate('thumbnailUrl')}>update thumbnailUrl</button>
 
         </>

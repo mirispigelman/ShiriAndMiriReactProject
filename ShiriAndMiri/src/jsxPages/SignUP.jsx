@@ -22,7 +22,7 @@ const SignUp=()=> {
         ////need to find in the data base if the user exists 
         console.log("getData")
             try{
-                const user = await fetchData(`users?username=${userName}&&website=${password}`);
+                const user = await fetchData(`users?username=${userName}`);
                 console.log(user)
                 if (user[0]) {
                     alert("userNmae or password is not avilable");

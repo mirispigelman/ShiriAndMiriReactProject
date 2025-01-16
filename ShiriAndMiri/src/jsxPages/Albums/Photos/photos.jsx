@@ -11,7 +11,7 @@ import UpdatePhoto from "./updatePhoto.jsx"
 import addPhoto from "./addPhoto.jsx"
 
 const Photos=()=>{
-     const { albumId } = useParams();
+    const { albumId } = useParams();
     const { user } = useContext(ContextUser);
     const [data, setData] = useState([]);
     const [addNew, setAddNew] = useState(false);
@@ -28,11 +28,11 @@ const Photos=()=>{
     return(
         <>
         <div className="container">
-            {data.map((photo, index) => {
+            {data.map((photo) => {
                            
             return (
                 <div key={photo.id} className="line">
-                    <strong>{index + 1}</strong>
+                    <strong>{photo.id}</strong>
                     <br />
                         <img src={photo.thumbnailUrl} alt={photo.title} />
                     <br />

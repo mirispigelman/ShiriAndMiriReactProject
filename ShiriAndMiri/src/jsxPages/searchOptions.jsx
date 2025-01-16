@@ -3,7 +3,6 @@ import '../App.css'
 
 const SearchOptions = ({ searchType, setSearchType, searchValue, setSearchValue,page }) => {
 
-    const flag=true;
     return (
         <>
             <label htmlFor="search-type">Search by: </label>
@@ -14,7 +13,12 @@ const SearchOptions = ({ searchType, setSearchType, searchValue, setSearchValue,
             >
                 <option value="id">ID</option>
                 <option value="title">Title</option>
-                {page=='todos'?(<option value="completed">not completed</option>):null}
+                {page=='todos'?(<>
+                <option value="uncompleted">completed</option>
+                {/* <option value="completed">not completed</option>*/}
+                </> 
+                ):null}
+                {page=='posts'?(<option value="mine">mine</option>):null}
                 <option value="all">all</option>
             </select>
 

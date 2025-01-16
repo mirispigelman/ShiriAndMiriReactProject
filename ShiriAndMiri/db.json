@@ -91,91 +91,6 @@
         "catchPhrase": "User-centric fault-tolerant solution",
         "bs": "revolutionize end-to-end systems"
       }
-    },
-    {
-      "id": "",
-      "name": "h",
-      "email": "",
-      "phone": "",
-      "adress": {
-        "street": "t",
-        "suite": "",
-        "city": "",
-        "zipcode": "",
-        "geo": {
-          "lat": "123",
-          "lng": ""
-        }
-      },
-      "company": {
-        "companyName": "",
-        "catchphrase": "",
-        "business": ""
-      }
-    },
-    {
-      "id": "",
-      "name": "s",
-      "email": "",
-      "phone": "s",
-      "adress": {
-        "street": "hh",
-        "suite": "ff",
-        "city": "",
-        "zipcode": "",
-        "geo": {
-          "lat": "",
-          "lng": ""
-        }
-      },
-      "company": {
-        "companyName": "",
-        "catchphrase": "",
-        "business": ""
-      }
-    },
-    {
-      "id": "",
-      "name": "aa",
-      "email": "aa2aaa@hhhh",
-      "phone": "rddd",
-      "adress": {
-        "street": "ddd",
-        "suite": "ddd",
-        "city": "ddd",
-        "zipcode": "",
-        "geo": {
-          "lat": "",
-          "lng": ""
-        },
-        "": "dd"
-      },
-      "company": {
-        "companyName": "",
-        "catchphrase": "",
-        "business": ""
-      }
-    },
-    {
-      "id": "a936",
-      "name": "ss",
-      "email": "",
-      "phone": "sdd",
-      "adress": {
-        "street": "",
-        "suite": "",
-        "city": "",
-        "zipcode": "",
-        "geo": {
-          "lat": "",
-          "lng": ""
-        }
-      },
-      "company": {
-        "companyName": "",
-        "catchphrase": "",
-        "business": ""
-      }
     }
   ],
   "todos": [
@@ -240,6 +155,30 @@
       "userId": "1",
       "title": "ski",
       "body": "so much funnn"
+    },
+    {
+      "id": "3487",
+      "userId": "1",
+      "title": "my trip to italy",
+      "body": "we went to the montains  to see the view"
+    },
+    {
+      "userId": "2",
+      "id": "17",
+      "title": "fugit voluptas sed molestias voluptatem provident",
+      "body": "eos voluptas et aut odit natus earum\naspernatur fuga molestiae ullam\ndeserunt ratione qui eos\nqui nihil ratione nemo velit ut aut id quo"
+    },
+    {
+      "userId": "2",
+      "id": "18",
+      "title": "voluptate et itaque vero tempora molestiae",
+      "body": "eveniet quo quis\nlaborum totam consequatur non dolor\nut et est repudiandae\nest voluptatem vel debitis et magnam"
+    },
+    {
+      "userId": "2",
+      "id": "19",
+      "title": "adipisci placeat illum aut reiciendis qui",
+      "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas"
     }
   ],
   "albums": [
@@ -261,32 +200,74 @@
   ],
   "comments": [
     {
-      "postId": null,
+      "postId": "1",
       "id": "1",
       "name": "id labore ex et quam laborum",
       "email": "Eliseo@gardner.biz",
       "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
     },
     {
-      "postId": null,
+      "postId": "1",
       "id": "2",
       "name": "quo vero reiciendis velit similique earum",
       "email": "Jayne_Kuhic@sydney.com",
       "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
     },
     {
-      "postId": null,
+      "postId": "1",
       "id": "3",
       "name": "odio adipisci rerum aut animi",
       "email": "Nikita@garfield.biz",
       "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
     },
     {
-      "postId": null,
-      "id": "4",
-      "name": "alias odio sit",
-      "email": "Lew@alysha.tv",
-      "body": "non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati"
+      "postId": "2",
+      "id": "8",
+      "name": "et omnis dolorem",
+      "email": "Mallory_Kunze@marie.org",
+      "body": "ut voluptatem corrupti velit\nad voluptatem maiores\net nisi velit vero accusamus maiores\nvoluptates quia aliquid ullam eaque"
+    },
+    {
+      "postId": "2",
+      "id": "9",
+      "name": "provident id voluptas",
+      "email": "Meghan_Littel@rene.us",
+      "body": "sapiente assumenda molestiae atque\nadipisci laborum distinctio aperiam et ab ut omnis\net occaecati aspernatur odit sit rem expedita\nquas enim ipsam minus"
+    },
+    {
+      "postId": "3",
+      "id": "11",
+      "name": "fugit labore quia mollitia quas deserunt nostrum sunt",
+      "email": "Veronica_Goodwin@timmothy.net",
+      "body": "ut dolorum nostrum id quia aut est\nfuga est inventore vel eligendi explicabo quis consectetur\naut occaecati repellat id natus quo est\nut blanditiis quia ut vel ut maiores ea"
+    },
+    {
+      "postId": "3",
+      "id": "12",
+      "name": "modi ut eos dolores illum nam dolor",
+      "email": "Oswald.Vandervort@leanne.org",
+      "body": "expedita maiores dignissimos facilis\nipsum est rem est fugit velit sequi\neum odio dolores dolor totam\noccaecati ratione eius rem velit"
+    },
+    {
+      "postId": "17",
+      "id": "83",
+      "name": "nihil qui accusamus ratione et molestias et minus",
+      "email": "Sage_Mueller@candace.net",
+      "body": "et consequatur voluptates magnam fugit sunt repellendus nihil earum\nofficiis aut cupiditate\net distinctio laboriosam\nmolestiae sunt dolor explicabo recusandae"
+    },
+    {
+      "postId": "17",
+      "id": "84",
+      "name": "quia voluptatibus magnam voluptatem optio vel perspiciatis",
+      "email": "Bernie.Bergnaum@lue.com",
+      "body": "ratione ut magni voluptas\nexplicabo natus quia consequatur nostrum aut\nomnis enim in qui illum\naut atque laboriosam aliquid blanditiis quisquam et laborum"
+    },
+    {
+      "id": "fcc6",
+      "postId": "ded7",
+      "name": "hii",
+      "email": "Sincere@april.biz",
+      "body": "ma nish?"
     }
   ],
   "photos": [
@@ -299,35 +280,35 @@
     },
     {
       "albumId": "2",
-      "id": 61,
+      "id": "61",
       "title": "quia minus sed eveniet accusantium incidunt beatae odio",
       "url": "https://via.placeholder.com/600/e403d1",
       "thumbnailUrl": "https://via.placeholder.com/150/e403d1"
     },
     {
       "albumId": "2",
-      "id": 62,
+      "id": "62",
       "title": "dolorem cumque quo nihil inventore enim",
       "url": "https://via.placeholder.com/600/65ad4f",
       "thumbnailUrl": "https://via.placeholder.com/150/65ad4f"
     },
     {
       "albumId": "3",
-      "id": 147,
+      "id": "147",
       "title": "minima aspernatur eius nemo ut",
       "url": "https://via.placeholder.com/600/661f4c",
       "thumbnailUrl": "https://via.placeholder.com/150/661f4c"
     },
     {
       "albumId": "3",
-      "id": 148,
+      "id": "148",
       "title": "aperiam amet est occaecati quae non ut",
       "url": "https://via.placeholder.com/600/b9d67e",
       "thumbnailUrl": "https://via.placeholder.com/150/b9d67e"
     },
     {
       "albumId": "3",
-      "id": 149,
+      "id": "149",
       "title": "saepe recusandae ut odio enim ipsa quo placeat iusto",
       "url": "https://via.placeholder.com/600/cffa9b",
       "thumbnailUrl": "https://via.placeholder.com/150/cffa9b"

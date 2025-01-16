@@ -34,12 +34,12 @@ const router = createBrowserRouter([
                     },
                     {
                         path: 'posts', element: <Posts />, children: [
-                            { path: ':id/comments', element: <Comments /> },
+                            { path: ':postId/comments', element: <Comments /> },
                         ]
                     },
                 ]
             },
-            // {path:'*', element:<Navigate to="/home"/>}
+            {path:'*', element:<Navigate to="/home"/>}
         ]
     }
 ]);

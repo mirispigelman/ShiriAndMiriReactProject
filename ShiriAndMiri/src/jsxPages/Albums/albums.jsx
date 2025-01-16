@@ -44,15 +44,11 @@ const Albums=()=>{
                    
                     return (
                         <div key={album.id} className="line">
-                            <strong>{index + 1}</strong>
+                            <strong>{album.id}</strong>
                             <br />
-                             <Link to={`${album.id}/photos`} style={{
-                                     color: "blue",
-                                         textDecoration: "none",
-                                         }}
-                                      >
+                             <Link to={`${album.id}/photos`}>
                                     {album.title}
-                                </Link>
+                            </Link>
                             <br />
                         </div>
                     )

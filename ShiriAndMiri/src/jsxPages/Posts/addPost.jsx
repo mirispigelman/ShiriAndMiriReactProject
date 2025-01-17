@@ -12,7 +12,7 @@ const AddPost = ({ setData }) => {
 
             let updateData = await fetchData(`posts?userId=${user.id}`, 'POST', newData) || [];
             console.log(updateData);
-            setData(prevData => [...prevData, newData]);
+            setData(prevData => [...prevData, updateData]);
         }
         catch (e) {
             console.error('Error fetching:', e);

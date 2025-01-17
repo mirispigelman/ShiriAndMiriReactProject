@@ -4,7 +4,7 @@ import '../../../App.css'
 import fetchData from '../../../service/FetchData.js'
 import  { ContextUser } from '../../ContextUser'
 import {  useParams} from "react-router-dom";
-import AddData from "./addComment.jsx"
+import AddComment from "./addComment.jsx"
 import handleDelete from "../../../service/handleDelete.js";
 
 const Comments = () => {
@@ -43,9 +43,8 @@ const Comments = () => {
         }
         if(data.length===0) return(
             <>
-            
             <h4>-----no comments-----</h4>
-                <AddData setData={setData} />
+                <AddComment setData={setData} />
             </>
         )
         return(
@@ -80,10 +79,10 @@ const Comments = () => {
                         )} 
                     </div>
                 )
-                    })}
+                })}
                 </div>
                 <div>
-                   <AddData setData={setData}  />
+                   <AddComment setData={setData}  />
                 </div>
 
             </>

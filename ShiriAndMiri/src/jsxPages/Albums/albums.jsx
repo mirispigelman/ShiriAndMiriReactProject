@@ -14,12 +14,13 @@ const Albums=()=>{
      const navigate = useNavigate();
     const { user } = useContext(ContextUser);
     const [data, setData] = useState([]);
-    const [showBody, setShowBody] = useState(null);
+    const [showPhotos, setShowPhotos] = useState(null);
    
     const [addNew, setAddNew] = useState(false);
 
     const [searchType, setSearchType] = useState('all');
     const [searchValue, setSearchValue] = useState('');
+
     useEffect(() => {
         async function getAlbums() {
             let albums = await fetchData(`albums?userId=${user.id}`) || [];
@@ -46,15 +47,22 @@ const Albums=()=>{
                         <div key={album.id} className="line">
                             <strong>{album.id}</strong>
                             <br />
-                             <Link to={`${album.id}/photos`}>
+                             <Link  onClick={() => setShowPhotos(album.id)} to={`${album.id}/photos`}>
                                     {album.title}
                             </Link>
                             <br />
+                            {showPhotos === album.id && (
+                                <div >
+                                 <Outlet />
+                                 <button onClick={() => setShowPhotos(null)}>close</button>
+                                </div>
+                            )
+                            }
                         </div>
                     )
                 })}
+
             </div>
-        <Outlet />
         </>
     )
 }

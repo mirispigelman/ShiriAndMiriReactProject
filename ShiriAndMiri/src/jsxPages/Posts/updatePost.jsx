@@ -4,9 +4,7 @@ import '../../App.css'
 import fetchData from '../../service/FetchData.js'  
 
 const UpdatePost = ({ body,title, setData, id }) => {
-
     const [newForm,setNewForm] = useState({title:title,body:body});
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setNewForm((prev) => ({ ...prev, [name]: value }));
@@ -24,8 +22,8 @@ const UpdatePost = ({ body,title, setData, id }) => {
             );
         } catch (e) {
             console.error('Error fetching:', e);
+            alert('Error fetching data');
         }
-        
     }
     return (
         <>

@@ -24,12 +24,12 @@ const Photos=()=>{
             setData(photos);
         }
         getPhotos();
-    }, [albumId]);
+    }, []);
+    if(data.length === 0) return <h4>no photos</h4>;
     return(
         <>
-        <div className="container">
-            {data.map((photo) => {
-                           
+           <div className="container">
+            {data.map((photo) => {    
             return (
                 <div key={photo.id} className="line">
                     <strong>{photo.id}</strong>

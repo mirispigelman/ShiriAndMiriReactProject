@@ -3,24 +3,32 @@ import {useState, useContext, useEffect} from 'react'
 import '../../App.css'
 import fetchData from '../../service/FetchData.js'
 import  { ContextUser } from '../ContextUser'
-import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom'
+import { Outlet} from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import SearchPosts from "../searchOptions.jsx";
 import UpdatePost from "./updatePost.jsx";
 import AddPost from "./addPost.jsx";
 import handleDelete from "../../service/handleDelete.js";
+
 const Posts=()=>{
     const navigate=useNavigate()
     const { user } = useContext(ContextUser);
     const [data, setData] = useState([]);
+
     const [UpdateactivePostId, setUpdateactivePostId] = useState(null);
+
     const [showBody, setShowBody] = useState(null);
+
     const [addNew, setAddNew] = useState(false);
+
     const [openPostId, setOpenPostId] = useState(null);
+
     const [searchType, setSearchType] = useState('all');
     const [searchValue, setSearchValue] = useState('');
 
+    const [selectedPost, setSelectedPost] = useState(null);
     const [style, setStyle] = useState(null);
+
     useEffect(() => {
         async function getPosts() {
             let posts = await fetchData(`posts`) || [];
@@ -28,12 +36,10 @@ const Posts=()=>{
         }
         getPosts();
     }, []);
-
     const showComments = (postId) => {
         if(openPostId === postId) return;
         navigate(`${postId}/comments`);
         setOpenPostId(openPostId === postId ? null : postId);
-        setStyle(postId)
     };
     const deletePost = (id) => {
         if(id!=user.id) {
@@ -51,7 +57,12 @@ const Posts=()=>{
                 <AddPost setData={setData} />
             </>)}
             <br/>
-            <SearchPosts searchType={searchType} searchValue={searchValue} setSearchType={setSearchType} setSearchValue={setSearchValue} page='posts'
+            <SearchPosts
+             searchType={searchType}
+             searchValue={searchValue}
+             setSearchType={setSearchType}
+             setSearchValue={setSearchValue}
+             page='posts'
              />
             <div className="container">
                 {data.filter((post)=>{
@@ -61,50 +72,57 @@ const Posts=()=>{
                     return searchType == "all" || post[searchType] == searchValue
                 }
                 ).map((post) => {
+                    const isSelected = selectedPost === post.id;
                     return (
                         <div key={post.id} className={style === post.id ? 'on' : 'line'}>
                             <strong>{post.id}</strong>
                             <br />
                             {post.title}
                             <br />
-                            <button onClick={() => deletePost(post.userId)}>delete</button>
-                            <button onClick={() => setUpdateactivePostId(post.id)}>edit content</button>
-                            <button onClick={() => showComments(post.id)}>
-                            Show Comments
-                            </button>
-                            <button onClick={() => setShowBody(post.id)}>show content</button>
-                            {showBody === post.id && (
+                            {!isSelected&&(
+                                <button className="btnNav" onClick={() => {setSelectedPost(post.id); setStyle(post.id)}}>select</button>
+                            )}
+                            {isSelected&&(
                                 <>
-                                    <br />
-                                        {post.body}
-
-                                    <br />
-                                    <button onClick={() => setShowBody(null)}>Close</button>
+                                <button className="btnNav" onClick={() => {setSelectedPost(null); setStyle(null)}}>Deselect</button>
+                                <br/>
+                                <button onClick={() => deletePost(post.userId)}>Delete</button>
+                                <button onClick={() => setUpdateactivePostId(post.id)}>Edit Content</button>
+                                <button onClick={() => showComments(post.id)}>Show Comments</button>
+                                <button onClick={() => setShowBody(post.id)}>Show body</button>
+                                {showBody === post.id && (
+                                    <>
+                                        <br />
+                                            {post.body}
+    
+                                        <br />
+                                        <button onClick={() => setShowBody(null)}>Close</button>
+                                    </>
+                                )}
+                                {UpdateactivePostId === post.id && (
+                                    <>
+                                        <div>
+                                            <UpdatePost
+                                                title={post.title}
+                                                setData={setData}
+                                                id={post.id}
+                                                data={data}
+                                                body={post.body}
+                                            />
+                                        </div>
+                                        <button onClick={() => setUpdateactivePostId(null)}>Close</button>
+                                    </>
+                                )}
+                                {openPostId === post.id && (
+                                    <>
+                                    <Outlet /> 
+                                    <button onClick={() => {setOpenPostId(null); setStyle(null)}}>Close</button>
+                                    </>
+                                 )                            
+                                }
                                 </>
                             )}
-                        
-                            {UpdateactivePostId === post.id && (
-                                <>
-                                    <div>
-                                        <UpdatePost
-                                            title={post.title}
-                                            setData={setData}
-                                            id={post.id}
-                                            data={data}
-                                            body={post.body}
-                                        />
-                                    </div>
-                                    <button onClick={() => setUpdateactivePostId(null)}>Close</button>
-                                </>
-                            )}
-                             {openPostId === post.id && (
-                                <>
-                                <Outlet /> 
-                                
-                                <button onClick={() => {setOpenPostId(null); setStyle(null)}}>Close</button>
-                                </>
-                             )                            
-                             }
+                            
                        </div>
                     )
                 })}

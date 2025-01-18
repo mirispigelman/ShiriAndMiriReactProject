@@ -28,7 +28,7 @@ const AddData = ({ setData }) => {
             <input placeholder={newData.name}  onChange={(e) => setNewData(prev => ({ ...prev, name: e.target.value }))} />
             <br/>
             <textarea placeholder={newData.body}  onChange={(e) => setNewData(prev => ({ ...prev, body: e.target.value }))} />
-<br/>
+            <br/>
             <button onClick={handleInput}>add comment</button>
         </>
     )

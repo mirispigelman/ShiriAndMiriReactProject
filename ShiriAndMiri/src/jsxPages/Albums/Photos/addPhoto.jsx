@@ -1,31 +1,22 @@
 import React from "react";
-import { useState, useContext } from 'react'
+import { useState } from 'react'
+import { useParams } from "react-router-dom";
 import '../../../App.css'
 import fetchData from '../../../service/FetchData'
-import  { ContextUser } from '../../ContextUser'
-
+import handleAdd from "../../../service/handleAdd";
 const AddPhoto = ({ setData }) => {
-    const { user } = useContext(ContextUser);
-    const [newData, setNewData] = useState({ userId: user.id, title: "",body: "" });
-    async function handlAdd() {
-        try {
-
-            let updateData = await fetchData(`posts?userId=${user.id}`, 'POST', newData) || [];
-            console.log(updateData);
-            setData(prevData => [...prevData, newData]);
-        }
-        catch (e) {
-            console.error('Error fetching:', e);
-        }
-    }
+    const { albumId } = useParams();
+    const [newData, setNewData] = useState({ albumId: albumId, title: "",url: "",thumbnailUrl: "" });
+    
     return (
         <>
-             <br />
-            <input placeholder="title" value={newData.title} onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))} />
+            <input  placeholder="title" onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))}></input>
             <br />
-            <input placeholder="body" value={newData.body} onChange={(e) => setNewData(prev => ({ ...prev, body: e.target.value }))} />
+            <input  placeholder="url" onChange={(e) => setNewData(prev => ({ ...prev, url: e.target.value }))}></input>
             <br />
-            <button onClick={handlAdd}>add</button>
+            <input  placeholder="thumbnailUrl" onChange={(e) => setNewData(prev => ({ ...prev, thumbnailUrl: e.target.value }))}></input>
+            <br />
+            <button onClick={()=>handleAdd(setData,`photos?albumId=${albumId}`, newData)}>add</button>
         </>
     )
 }

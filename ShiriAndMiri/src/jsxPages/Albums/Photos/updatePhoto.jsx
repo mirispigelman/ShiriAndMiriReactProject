@@ -32,7 +32,6 @@ const UpdatePhoto = ({id ,url, thumbnailUrl,title, setData }) => {
         <>
             <input  name={'title'} value={newForm.title} onChange={handleChange}></input>
             <button onClick={()=>handleUpdate('title')}>update tiltle</button>
-
             <br />
             <input  name={'url'} value={newForm.url} onChange={handleChange}></input>
             <button onClick={()=>handleUpdate('url')}>update url</button>

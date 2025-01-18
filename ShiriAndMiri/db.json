@@ -196,6 +196,11 @@
       "userId": "1",
       "id": "3",
       "title": "omnis laborum odio"
+    },
+    {
+      "id": "1fc8",
+      "userId": "1",
+      "title": "my favorite album"
     }
   ],
   "comments": [
@@ -326,6 +331,27 @@
       "title": "saepe recusandae ut odio enim ipsa quo placeat iusto",
       "url": "https://via.placeholder.com/600/cffa9b",
       "thumbnailUrl": "https://via.placeholder.com/150/cffa9b"
+    },
+    {
+      "id": "8120",
+      "albumId": "1fc8",
+      "title": "dog",
+      "url": "dd",
+      "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV1RlrbxJfEqwRJACDSVzfUmCqSdrP8QUkYA&s"
+    },
+    {
+      "id": "5142",
+      "albumId": "1",
+      "title": "dog",
+      "url": "//",
+      "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIs55YYqbZw5eV_7sCXa_OCmb-raPssT_olw&s"
+    },
+    {
+      "id": "7980",
+      "albumId": "1fc8",
+      "title": "cutest puppies everrrr",
+      "url": "//",
+      "thumbnailUrl": "https://cdn.britannica.com/55/164255-050-AAADAF11/litter-Australian-Shepherd-puppies.jpg"
     }
   ]
 }

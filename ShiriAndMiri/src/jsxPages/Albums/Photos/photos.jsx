@@ -8,15 +8,12 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import handleDelete from "../../../service/handleDelete.js"
 import UpdatePhoto from "./updatePhoto.jsx"
-import addPhoto from "./addPhoto.jsx"
+import AddPhoto from "./addPhoto.jsx"
 
 const Photos=()=>{
     const { albumId } = useParams();
     const { user } = useContext(ContextUser);
     const [data, setData] = useState([]);
-    const [addNew, setAddNew] = useState(false);
-    const [searchType, setSearchType] = useState('all');
-    const [searchValue, setSearchValue] = useState('');
     const [updateActivePhotoId, setUpdateActivePhotoId] = useState(null);
     useEffect(() => {
         async function getPhotos() {
@@ -26,7 +23,12 @@ const Photos=()=>{
                 }
         getPhotos();
     }, [albumId]);
-    if(data.length === 0) return <h4>no photos</h4>;
+    if(data.length === 0) return (<>
+        <h4>no photos</h4> 
+        <br />
+        <AddPhoto setData={setData} />
+        <br />
+    </>)
     return(
         <>
            <div className="container">
@@ -34,11 +36,13 @@ const Photos=()=>{
             return (
                 <div key={photo.id} className="line">
                     <strong>{photo.id}</strong>
+                    <h3>{photo.title}</h3>
                     <br />
                         <img src={photo.thumbnailUrl} alt={photo.title} />
                     <br />
                     <button onClick={() => handleDelete(photo.id, setData, 'photos')}>delete</button>
                     <button onClick={() => setUpdateActivePhotoId(photo.id)}>edit photo</button>
+
                     
                     {updateActivePhotoId === photo.id && (
                         <>
@@ -55,9 +59,13 @@ const Photos=()=>{
                             <button onClick={() => setUpdateActivePhotoId(null)}>Close</button>
                         </>
                     )} 
+                    
                 </div>
-            )
+                )
                 })}
+                <div>
+                    <AddPhoto setData={setData} />
+                </div>
             </div>
         </>
     )

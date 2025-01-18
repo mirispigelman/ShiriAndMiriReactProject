@@ -7,6 +7,6 @@ const handleDelete = async (id,setData,path)=>{
         setData(prevData => prevData.filter(item => item.id !== id));
 
     }
-    catch(e){ console.error('Error fetching:', e); }
+    catch(e){ console.error('Error fetching:', e); alert('Error fetching data'); }
 }
 export default handleDelete;

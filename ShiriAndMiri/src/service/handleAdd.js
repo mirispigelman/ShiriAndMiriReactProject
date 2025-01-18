@@ -1,0 +1,13 @@
+import fetchData from "./FetchData.js";
+
+const handleAdd = async (setData, path, data) => {
+    try {
+        let addData = await fetchData(path, "POST", data);
+        console.log(addData);
+        setData(prevData => [...prevData, addData]);
+    } catch (e) {
+        console.error("Error fetching:", e);
+        alert("Error fetching data");
+    }
+};
+export default handleAdd;

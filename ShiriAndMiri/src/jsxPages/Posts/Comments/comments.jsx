@@ -6,6 +6,7 @@ import  { ContextUser } from '../../ContextUser'
 import {  useParams} from "react-router-dom";
 import AddComment from "./addComment.jsx"
 import handleDelete from "../../../service/handleDelete.js";
+import Updatecomment from "./updateComment.jsx"
 
 const Comments = () => {
         const { postId } = useParams();
@@ -25,6 +26,8 @@ const Comments = () => {
         }, [postId]);
 
         const edit_access_permission=(email,id)=>{
+            console.log(email)
+            console.log(user.email)
             if(email!=user.email) {
                 alert("you can't edit others comments");
             }
@@ -61,7 +64,7 @@ const Comments = () => {
                            {comment.body}
                         <br />
                         <button onClick={() => delete_access_permission(comment.email,comment.id)}>delete</button>
-                        <button onClick={() => edit_access_permission(comment.id)}>edit comment</button>
+                        <button onClick={() => edit_access_permission(comment.email,comment.id)}>edit comment</button>
                         {updateActivecommentId === comment.id && (
                             <>
                                 <div>

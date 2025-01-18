@@ -9,6 +9,7 @@ const AddData = ({ setData }) => {
     const { postId } = useParams();
     const {user}=useContext(ContextUser);
     const [newData, setNewData] = useState({ postId: postId, name: "name", email: user.email, body: "body" });
+    console.log(user.email)
     async function handleInput() {
         try {
 

@@ -21,10 +21,11 @@ const Photos=()=>{
     useEffect(() => {
         async function getPhotos() {
             let photos = await fetchData(`photos?albumId=${albumId}`) || [];
+
             setData(photos);
-        }
+                }
         getPhotos();
-    }, []);
+    }, [albumId]);
     if(data.length === 0) return <h4>no photos</h4>;
     return(
         <>

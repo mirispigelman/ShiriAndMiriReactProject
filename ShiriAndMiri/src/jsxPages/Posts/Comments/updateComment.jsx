@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from 'react'
 import '../../../App.css'
 import fetchData from '../../../service/FetchData.js'  
-////////////////////////////////////////////////////////need to adjust to comments
 const UpdatePost = ({ body,title, setData, id }) => {
     const [newForm,setNewForm] = useState({title:title,body:body});
     const handleChange = (e) => {

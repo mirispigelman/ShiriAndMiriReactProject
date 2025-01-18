@@ -41,6 +41,7 @@ const Comments = () => {
                 alert("you can't delete others comments");
             }
             else{
+                console.log("lllll")
                 handleDelete(id, setData, 'comments');
             }
         }
@@ -69,12 +70,12 @@ const Comments = () => {
                             <>
                                 <div>
                                     <Updatecomment
-                                        title={comment.title}
+                                       
                                         setData={setData}
+                                        name={comment.name}
                                         id={comment.id}
                                         data={data}
-                                        url={comment.url}
-                                        thumbnailUrl={comment.thumbnailUrl}
+                                        body={comment.body}
                                     />
                                 </div>
                                 <button onClick={() => setUpdateActivecommentId(null)}>Close</button>

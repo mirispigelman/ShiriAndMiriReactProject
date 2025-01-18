@@ -11,11 +11,12 @@ const UpdatePhoto = ({id ,url, thumbnailUrl,title, setData }) => {
         const { name, value } = e.target;
         setNewForm((prev) => ({ ...prev, [name]: value }));
     }
-     const handleUpdate=async (field) =>{
+    const handleUpdate=async (field) =>{
         try {
             const updatedValue = { [field]: newForm[field] };
-            const updatedData = await fetchData(`photos?id=${id}`, 'PATCH', updatedValue) || [];
-            console.log(updatedData[0]);
+            console.log(updatedValue)
+            const updatedData = await fetchData(`photos/${id}`, 'PATCH', updatedValue) || [];
+            console.log(updatedData);
 
             setData((prevData) =>
                 prevData.map((item) =>
@@ -26,7 +27,6 @@ const UpdatePhoto = ({id ,url, thumbnailUrl,title, setData }) => {
             console.error('Error fetching:', e);
             alert('Error fetching data');
         }
-        
     }
     return (
         <>

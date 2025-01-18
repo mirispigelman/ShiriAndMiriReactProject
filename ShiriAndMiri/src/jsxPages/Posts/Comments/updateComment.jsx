@@ -2,16 +2,19 @@ import React from "react";
 import { useState } from 'react'
 import '../../../App.css'
 import fetchData from '../../../service/FetchData.js'  
-const UpdatePost = ({ body,title, setData, id }) => {
-    const [newForm,setNewForm] = useState({title:title,body:body});
+const UpdateComment = ({ body,name, setData, id }) => {
+    const [newForm,setNewForm] = useState({name:name ,body:body});
     const handleChange = (e) => {
         const { name, value } = e.target;
         setNewForm((prev) => ({ ...prev, [name]: value }));
     }
-     const handleUpdate=async (field) =>{
+   
+    const handleUpdate=async (field) =>{
         try {
+            console.log("field"+field)
             const updatedValue = { [field]: newForm[field] };
-            const updatedData = await fetchData(`posts/${id}`, 'PATCH', updatedValue) || [];
+            console.log(updatedValue)
+            const updatedData = await fetchData(`comments/${id}`, 'PATCH', updatedValue) || [];
             console.log(updatedData);
 
             setData((prevData) =>
@@ -21,17 +24,18 @@ const UpdatePost = ({ body,title, setData, id }) => {
             );
         } catch (e) {
             console.error('Error fetching:', e);
+            alert('Error fetching data');
         }
     }
     return (
         <>
-            <input  name={'title'} value={newForm.title} onChange={handleChange}/>
-            <button onClick={()=>handleUpdate('title')}>update tiltle</button>
+            <input  name={'name'} value={newForm.name} onChange={handleChange}/>
+            <button onClick={()=>handleUpdate('name')}>update tiltle</button>
             <br />
             <textarea  name={'body'} value={newForm.body} onChange={handleChange}/>
             <button onClick={()=>handleUpdate('body')}>update body</button>
-
+            
         </>
     )
 }
-export default UpdatePost;
+export default UpdateComment;

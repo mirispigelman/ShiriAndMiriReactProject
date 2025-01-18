@@ -1,9 +1,11 @@
 
 import fetchData from "./FetchData.js";
 
-const handleUpdate=async (setData,newForm,path,field) =>{
+const handleUpdate=async (setData,newForm,path,field,id) =>{
     try {
+        
         const updatedValue = { [field]: newForm[field] };
+        console.log(updatedValue);
         const updatedData = await fetchData(path, 'PATCH', updatedValue) || [];
         console.log(updatedData[0]);
 

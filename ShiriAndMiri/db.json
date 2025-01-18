@@ -97,7 +97,7 @@
     {
       "userId": "1",
       "id": "4",
-      "title": "gyg",
+      "title": "give gift",
       "completed": false
     },
     {
@@ -145,16 +145,10 @@
   ],
   "posts": [
     {
-      "userId": "1",
-      "id": "2",
-      "title": "qui est em",
-      "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
-    },
-    {
       "id": "ded7",
       "userId": "1",
-      "title": "ski",
-      "body": "so much ממממ"
+      "title": "ski!",
+      "body": "so much יי"
     },
     {
       "id": "3487",
@@ -179,6 +173,12 @@
       "id": "19",
       "title": "adipisci placeat illum aut reiciendis qui",
       "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas"
+    },
+    {
+      "id": "cacc",
+      "userId": "1",
+      "title": "my childhood",
+      "body": "it was long ago:)\nonce upon a time"
     }
   ],
   "albums": [
@@ -226,14 +226,14 @@
       "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
     },
     {
-      "postId": "2",
+      "postId": null,
       "id": "8",
       "name": "et omnis dolorem",
       "email": "Mallory_Kunze@marie.org",
       "body": "ut voluptatem corrupti velit\nad voluptatem maiores\net nisi velit vero accusamus maiores\nvoluptates quia aliquid ullam eaque"
     },
     {
-      "postId": "2",
+      "postId": null,
       "id": "9",
       "name": "provident id voluptas",
       "email": "Meghan_Littel@rene.us",
@@ -282,34 +282,27 @@
       "body": "body"
     },
     {
-      "id": "c48d",
-      "postId": "ded7",
-      "name": "thanks ",
+      "id": "14a8",
+      "postId": null,
+      "name": "hii!",
       "email": "Sincere@april.biz",
-      "body": "thank you hashem"
+      "body": "what your name??"
     },
     {
-      "id": "14a8",
-      "postId": "2",
-      "name": "bbb",
+      "id": "00d5",
+      "postId": null,
+      "name": "good morning",
       "email": "Sincere@april.biz",
-      "body": "jjjjjjj"
+      "body": "have a nice day"
     }
   ],
   "photos": [
     {
       "albumId": "2",
       "id": "61",
-      "title": "ללללל",
+      "title": "cool dog",
       "url": "eholder.com/600/e403d1",
       "thumbnailUrl": "https://www.kolbopet.co.il/wp-content/uploads/2024/08/lovely-pet-portrait-isolated-1-1200x800.jpg"
-    },
-    {
-      "albumId": "2",
-      "id": "62",
-      "title": "dolorem cumque quo nihil inventore enim",
-      "url": "https://via.placeholder.com/600/65ad4f",
-      "thumbnailUrl": "https://via.placeholder.com/150/65ad4f"
     },
     {
       "albumId": "3",
@@ -342,8 +335,8 @@
     {
       "id": "5142",
       "albumId": "1",
-      "title": "dog",
-      "url": "//",
+      "title": "pretty dog:)",
+      "url": "///!!!",
       "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIs55YYqbZw5eV_7sCXa_OCmb-raPssT_olw&s"
     },
     {

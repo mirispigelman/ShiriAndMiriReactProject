@@ -12,6 +12,7 @@ const UpdatePost = ({ body,title, setData, id }) => {
      const handleUpdate=async (field) =>{
         try {
             const updatedValue = { [field]: newForm[field] };
+            console.log(updatedValue)
             const updatedData = await fetchData(`posts/${id}`, 'PATCH', updatedValue) || [];
             console.log(updatedData);
 

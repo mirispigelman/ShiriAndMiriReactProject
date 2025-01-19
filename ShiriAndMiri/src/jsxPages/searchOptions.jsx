@@ -14,8 +14,8 @@ const SearchOptions = ({ searchType, setSearchType, searchValue, setSearchValue,
                 <option value="id">ID</option>
                 <option value="title">Title</option>
                 {page=='todos'?(<>
-                <option value="uncompleted">completed</option>
-                {/* <option value="completed">not completed</option>*/}
+                <option value="completed">completed</option>
+                <option value="uncompleted">not_completed</option>
                 </> 
                 ):null}
                 {page=='posts'?(<option value="mine">mine</option>):null}

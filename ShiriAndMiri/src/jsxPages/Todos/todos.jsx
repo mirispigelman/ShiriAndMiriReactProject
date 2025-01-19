@@ -58,7 +58,14 @@ const Todos = () => {
             <SearchTodos searchType={searchType} searchValue={searchValue} setSearchType={setSearchType} setSearchValue={setSearchValue} page='todos'
              />
             <div className="container">
-                {data.sort((a, b) => sortBy(a, b, sortType)).filter(x => searchType == "all" || x[searchType] == searchValue).map((todo) => {
+                {data.sort((a, b) => sortBy(a, b, sortType)).filter((todo) => {
+                    if(searchType==='completed') return todo.completed==true;
+                    if(searchType==='uncompleted') return todo.completed==false;
+
+                    return searchType == "all" || todo[searchType] == searchValue
+                }
+                    
+                ).map((todo) => {
                    
                     return (
                         <div key={todo.id} className="line">

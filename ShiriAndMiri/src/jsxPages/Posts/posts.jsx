@@ -89,7 +89,7 @@ const Posts=()=>{
                             )}
                             {isSelected&&(
                                 <>
-                                <button className="btnNav" onClick={() => {setSelectedPost(null); setStyle(null)}}>Deselect</button>
+                                <button className="btnNav" onClick={() => {setSelectedPost(null); setStyle(null);navigate(".")}}>Deselect</button>
                                 <br/>
                                 <button onClick={() => access_permission(post.userId,'delete',post.id)}>Delete</button>
                                 <button onClick={() => access_permission(post.userId,'edit',post.id)}>Edit Content</button>

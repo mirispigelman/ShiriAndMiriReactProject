@@ -19,7 +19,8 @@ const Comments = () => {
     
         useEffect(() => {
             async function getComments() {
-                let comments = await fetchData(`comments?postId=${postId}`) || [];
+                let comments = await fetchData(`comments?postId=${postId}` ) || [];
+                comments= comments.filter(comment => comment.postId != null);
                 setData(comments);
             }
             getComments();

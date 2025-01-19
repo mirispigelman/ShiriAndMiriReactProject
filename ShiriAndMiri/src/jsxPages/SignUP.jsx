@@ -20,10 +20,11 @@ const SignUp=()=> {
             return;
         }
         ////need to find in the data base if the user exists 
-        console.log("getData")
+        // console.log("getData")
             try{
+                console.log(userName);
                 const user = await fetchData(`users?username=${userName}`);
-                console.log(user)
+                // console.log("לללל"+user)
                 if (user[0]) {
                     alert("userNmae or password is not avilable");
                     return;

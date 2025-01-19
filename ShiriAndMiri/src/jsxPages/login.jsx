@@ -14,7 +14,6 @@ const Login=()=>{
         event.preventDefault();
         ////need to find in the data base if the user exists and check if the password matches
         try{
-            console.log(`users?username=${userName}&website=${password}'`);
             const myUser = await fetchData(`users?username=${userName}&website=${password}`); 
             console.log(myUser);
             if (!myUser[0]) {
@@ -33,7 +32,6 @@ const Login=()=>{
                 alert('Error fetching data');
                 return;
          }
-        //go to your home page
         
     }
     return (
@@ -61,7 +59,6 @@ const Login=()=>{
             <br></br>
             <button type='submit'>Submit</button>
             </form>
-            {/* <h4> <Link to="/SignUp">new here? go to</Link></h4> */}
            
         <button onClick={()=>navigate("/signUp")} style={{ color: "blue", textDecoration: "none", background: "none", border: "none", cursor: "pointer" }}>
         new here? go to signUp

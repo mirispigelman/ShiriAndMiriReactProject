@@ -3,10 +3,12 @@ import '../App.css';
 import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom';
 import fetchData from "../service/FetchData.js";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { use } from "react";
 const SignUp=()=> {
     const navigate = useNavigate();
-    const [userName, setUserName] = useState('')
-    const [password, setPassword] = useState('')
+     const [userName, setUserName] = useState('')
+     const [password, setPassword] = useState('')
     const [verifyPassword, setVerifyPassword] = useState('')
     
     const HandleForm = async (event) => {
@@ -31,7 +33,7 @@ const SignUp=()=> {
                 }
                 else{
                     //go to your signUp-part2 page
-                     navigate("/signUpPart2");
+                     navigate("/signUpPart2",{state:{userName,password}});
                 }
             }catch(e){
                 console.error('Error fetching:', error);

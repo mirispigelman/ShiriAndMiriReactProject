@@ -13,6 +13,7 @@ import handleDelete from "../../service/handleDelete.js";
 const Posts=()=>{
     const navigate=useNavigate()
     const { user } = useContext(ContextUser);
+    
     const [data, setData] = useState([]);
 
     const [UpdateactivePostId, setUpdateactivePostId] = useState(null);

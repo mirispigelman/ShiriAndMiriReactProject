@@ -3,13 +3,38 @@ import '../App.css'
 import { useState } from 'react'
 import fetchData from '../service/FetchData.js';
 import { ContextUser } from './ContextUser';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const SignUpPart2 = () => {
     const { setUser } = useContext(ContextUser)
+    const location = useLocation();
+     const { username, password } = location.state || {}; // קריאה לנתונים שהועברו
     const navigate = useNavigate();
     //need to get the user name and the password from SignUp
     const [form, setForm] = useState({
+      name:'',
+      username:username,
+      email:'',
+       address:{
+         street:'',
+         suite:'',
+         city:'',
+         zipcode: '',
+         geo: {
+           lat: '',
+           lng: ''
+        }
+      },
+       phone: '',
+       website: password,
+       company: {
+         name: '',
+         catchPhrase: '',
+         bs : ''
+      }
+    }
+       /* mmmmm
+        {
         name: '',
         email: '',
         phone: '',
@@ -28,18 +53,18 @@ const SignUpPart2 = () => {
             catchphrase: '',
             business: '',
         },
-    });
+    }*/);
     const update = (e) => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
     }
     const updateAdress = (e) => {
         const { name, value } = e.target;
-        setForm({ ...form, adress: { ...form.adress, [name]: value } });
+        setForm({ ...form, adress: { ...form.address, [name]: value } });
     }
     const updateGoe = (e) => {
         const { name, value } = e.target;
-        setForm({ ...form, adress: { ...form.adress, geo: { ...form.adress.geo, [name]: value } } });
+        setForm({ ...form, adress: { ...form.address, geo: { ...form.address.geo, [name]: value } } });
     }
     const updateCompany = (e) => {
         const { name, value } = e.target;
@@ -103,7 +128,7 @@ const SignUpPart2 = () => {
                 <h3>Address</h3>
                 <MyInput
                     type="text"
-                    form={form.adress}
+                    form={form.address}
                     name='street'
                     placeholder="Street"
                     update={updateAdress}
@@ -112,7 +137,7 @@ const SignUpPart2 = () => {
                 <br />
                 <MyInput
                     type="text"
-                    form={form.adress}
+                    form={form.address}
                     name="suite"
                     placeholder="Suite"
                     update={updateAdress}
@@ -121,7 +146,7 @@ const SignUpPart2 = () => {
                 <br />
                 <MyInput
                     type="text"
-                    form={form.adress}
+                    form={form.address}
                     name="city"
                     placeholder="City"
                     update={updateAdress}
@@ -130,7 +155,7 @@ const SignUpPart2 = () => {
                 <br />
                 <MyInput
                     type="text"
-                    form={form.adress}
+                    form={form.address}
                     placeholder="Zipcode"
                     update={updateAdress}
                 />
@@ -139,7 +164,7 @@ const SignUpPart2 = () => {
                 <h3>Geo</h3>
                 <MyInput
                     type="text"
-                    form={form.adress.geo}
+                    form={form.address.geo}
                     name='lat'
                     placeholder="Latitude"
                     update={updateGoe}
@@ -147,7 +172,7 @@ const SignUpPart2 = () => {
                 <br />
                 <MyInput
                     type="text"
-                    form={form.adress.geo}
+                    form={form.address.geo}
                     name='lng'
                     placeholder="Longitude"
                     update={updateGoe}

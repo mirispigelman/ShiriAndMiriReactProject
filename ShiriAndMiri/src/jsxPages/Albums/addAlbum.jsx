@@ -10,7 +10,7 @@ const AddAlbum = ({ setData }) => {
     return (
         <>
              <br />
-            <input placeholder="title" value={newData.title} onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))} />
+            <input placeholder="title" value={newData.title} onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))} required/>
             <br />
             <button onClick={()=>handleAdd(setData,`albums?userId=${user.id}`, newData)}>add</button>
         </>

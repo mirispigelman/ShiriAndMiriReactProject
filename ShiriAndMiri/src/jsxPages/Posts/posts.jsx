@@ -41,14 +41,19 @@ const Posts=()=>{
         navigate(`${postId}/comments`);
         setOpenPostId(openPostId === postId ? null : postId);
     };
-    const deletePost = (id) => {
-        if(id!=user.id) {
-            alert("you can't delete others posts");
+
+    const access_permission=(userId,action,id)=>{
+        if(userId!=user.id) {
+            alert(`you can't ${action} others posts`);
         }
-        else{
+        else if(action=="edit"){
+            setUpdateactivePostId(id);
+        }
+        else if(action=="delete"){
             handleDelete(id, setData, 'posts');
         }
     }
+
     return(
         <>
         <h1>Posts</h1>
@@ -84,10 +89,10 @@ const Posts=()=>{
                             )}
                             {isSelected&&(
                                 <>
-                                <button className="btnNav" onClick={() => {setSelectedPost(null); setStyle(null)}}>Deselect</button>
+                                <button className="btnNav" onClick={() => {setSelectedPost(null); setStyle(null);navigate(".")}}>Deselect</button>
                                 <br/>
-                                <button onClick={() => deletePost(post.userId)}>Delete</button>
-                                <button onClick={() => setUpdateactivePostId(post.id)}>Edit Content</button>
+                                <button onClick={() => access_permission(post.userId,'delete',post.id)}>Delete</button>
+                                <button onClick={() => access_permission(post.userId,'edit',post.id)}>Edit Content</button>
                                 <button onClick={() => showComments(post.id)}>Show Comments</button>
                                 <button onClick={() => setShowBody(post.id)}>Show body</button>
                                 {showBody === post.id && (

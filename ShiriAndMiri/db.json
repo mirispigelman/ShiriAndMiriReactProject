@@ -118,7 +118,7 @@
     {
       "userId": "1",
       "id": "4",
-      "title": "gyg",
+      "title": "give gift",
       "completed": false
     },
     {
@@ -166,18 +166,6 @@
   ],
   "posts": [
     {
-      "userId": "1",
-      "id": "2",
-      "title": "qui est em",
-      "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
-    },
-    {
-      "id": "ded7",
-      "userId": "1",
-      "title": "ski",
-      "body": "so much ממממ"
-    },
-    {
       "id": "3487",
       "userId": "1",
       "title": "my trip to africa",
@@ -200,6 +188,12 @@
       "id": "19",
       "title": "adipisci placeat illum aut reiciendis qui",
       "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas"
+    },
+    {
+      "id": "cacc",
+      "userId": "1",
+      "title": "my childhood",
+      "body": "it was long ago:)\nonce upon a time"
     }
   ],
   "albums": [
@@ -247,20 +241,6 @@
       "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
     },
     {
-      "postId": "2",
-      "id": "8",
-      "name": "et omnis dolorem",
-      "email": "Mallory_Kunze@marie.org",
-      "body": "ut voluptatem corrupti velit\nad voluptatem maiores\net nisi velit vero accusamus maiores\nvoluptates quia aliquid ullam eaque"
-    },
-    {
-      "postId": "2",
-      "id": "9",
-      "name": "provident id voluptas",
-      "email": "Meghan_Littel@rene.us",
-      "body": "sapiente assumenda molestiae atque\nadipisci laborum distinctio aperiam et ab ut omnis\net occaecati aspernatur odit sit rem expedita\nquas enim ipsam minus"
-    },
-    {
       "postId": "3",
       "id": "11",
       "name": "fugit labore quia mollitia quas deserunt nostrum sunt",
@@ -289,48 +269,20 @@
       "body": "ratione ut magni voluptas\nexplicabo natus quia consequatur nostrum aut\nomnis enim in qui illum\naut atque laboriosam aliquid blanditiis quisquam et laborum"
     },
     {
-      "id": "fcc6",
-      "postId": "ded7",
-      "name": "hii",
+      "id": "dbfa",
+      "postId": null,
+      "name": "beyyyyyyyyyyy",
       "email": "Sincere@april.biz",
-      "body": "ma nish?"
-    },
-    {
-      "id": "ca16",
-      "postId": "ded7",
-      "name": "name",
-      "email": "Sincere@april.biz",
-      "body": "body"
-    },
-    {
-      "id": "c48d",
-      "postId": "ded7",
-      "name": "thanks ",
-      "email": "Sincere@april.biz",
-      "body": "thank you hashem"
-    },
-    {
-      "id": "14a8",
-      "postId": "2",
-      "name": "bbb",
-      "email": "Sincere@april.biz",
-      "body": "jjjjjjj"
+      "body": "bey bey"
     }
   ],
   "photos": [
     {
       "albumId": "2",
       "id": "61",
-      "title": "ללללל",
+      "title": "cool dog",
       "url": "eholder.com/600/e403d1",
       "thumbnailUrl": "https://www.kolbopet.co.il/wp-content/uploads/2024/08/lovely-pet-portrait-isolated-1-1200x800.jpg"
-    },
-    {
-      "albumId": "2",
-      "id": "62",
-      "title": "dolorem cumque quo nihil inventore enim",
-      "url": "https://via.placeholder.com/600/65ad4f",
-      "thumbnailUrl": "https://via.placeholder.com/150/65ad4f"
     },
     {
       "albumId": "3",
@@ -347,13 +299,6 @@
       "thumbnailUrl": "https://via.placeholder.com/150/b9d67e"
     },
     {
-      "albumId": "3",
-      "id": "149",
-      "title": "saepe recusandae ut odio enim ipsa quo placeat iusto",
-      "url": "https://via.placeholder.com/600/cffa9b",
-      "thumbnailUrl": "https://via.placeholder.com/150/cffa9b"
-    },
-    {
       "id": "8120",
       "albumId": "1fc8",
       "title": "dog",
@@ -363,8 +308,8 @@
     {
       "id": "5142",
       "albumId": "1",
-      "title": "dog",
-      "url": "//",
+      "title": "pretty dog:)",
+      "url": "///!!!",
       "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIs55YYqbZw5eV_7sCXa_OCmb-raPssT_olw&s"
     },
     {
@@ -375,11 +320,33 @@
       "thumbnailUrl": "https://cdn.britannica.com/55/164255-050-AAADAF11/litter-Australian-Shepherd-puppies.jpg"
     },
     {
+<<<<<<< HEAD
       "id": "6375",
       "albumId": "2",
       "title": "ערכינא",
       "url": "עארי",
       "thumbnailUrl": "עארקי"
+=======
+      "id": "4c20",
+      "albumId": "1",
+      "title": "two puppies",
+      "url": "//",
+      "thumbnailUrl": "https://www.mahmadi.co.il/wp-content/uploads/2022/10/%D7%A9%D7%A0%D7%99-%D7%92%D7%95%D7%A8%D7%99-%D7%9B%D7%9C%D7%91%D7%99%D7%9D-%D7%99%D7%95%D7%A9%D7%91%D7%99%D7%9D-%D7%A2%D7%9C-%D7%94%D7%93%D7%A9%D7%90.jpg"
+    },
+    {
+      "id": "b5a9",
+      "albumId": "1",
+      "title": "big dog",
+      "url": "",
+      "thumbnailUrl": "https://www.kolbopet.co.il/wp-content/uploads/2022/09/portrait-beautiful-brown-white-domestic-australian-shepherd-dog-posing-nature-sunset-1200x800.jpg"
+    },
+    {
+      "id": "306f",
+      "albumId": "1",
+      "title": "dogii",
+      "url": "//",
+      "thumbnailUrl": "https://www.petfinder.co.il/wp-content/uploads/2020/10/%D7%A8%D7%95%D7%A2%D7%99-%D7%94%D7%9B%D7%A4%D7%A8-%D7%A0%D7%99%D7%91-%D7%A6%D7%93%D7%99%D7%A7-2-1-488x533.jpg"
+>>>>>>> 892c628646da7284ae3ecb8d7baac3578e3ea75f
     }
   ]
 }

@@ -10,11 +10,12 @@ const AddPhoto = ({ setData }) => {
     
     return (
         <>
-            <input  placeholder="title" onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))}></input>
+            
+            <input  placeholder="title" onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))} />
             <br />
-            <input  placeholder="url" onChange={(e) => setNewData(prev => ({ ...prev, url: e.target.value }))}></input>
+            <input  placeholder="url" onChange={(e) => setNewData(prev => ({ ...prev, url: e.target.value }))}/>
             <br />
-            <input  placeholder="thumbnailUrl" onChange={(e) => setNewData(prev => ({ ...prev, thumbnailUrl: e.target.value }))}></input>
+            <input  placeholder="thumbnailUrl" onChange={(e) => setNewData(prev => ({ ...prev, thumbnailUrl: e.target.value }))} />
             <br />
             <button onClick={()=>handleAdd(setData,`photos?albumId=${albumId}`, newData)}>add</button>
         </>

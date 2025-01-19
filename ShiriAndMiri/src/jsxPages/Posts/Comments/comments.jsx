@@ -19,32 +19,27 @@ const Comments = () => {
     
         useEffect(() => {
             async function getComments() {
-                let comments = await fetchData(`comments?postId=${postId}`) || [];
+                let comments = await fetchData(`comments?postId=${postId}` ) || [];
+                comments= comments.filter(comment => comment.postId != null);
                 setData(comments);
             }
             getComments();
         }, [postId]);
 
-        const edit_access_permission=(email,id)=>{
+        const access_permission=(email,id,action)=>{
             console.log(email)
             console.log(user.email)
             if(email!=user.email) {
-                alert("you can't edit others comments");
+                alert(`you can't ${action} others comments`);
             }
-            else{
+            else if(action=="edit"){
                 setUpdateActivecommentId(id);
             }
-        }
-
-        const delete_access_permission = (email,id) => {
-            if(email!=user.email) {
-                alert("you can't delete others comments");
-            }
-            else{
-                console.log("lllll")
+            else if(action=="delete"){
                 handleDelete(id, setData, 'comments');
             }
         }
+
         if(data.length===0) return(
             <>
             <h4>-----no comments-----</h4>
@@ -64,13 +59,12 @@ const Comments = () => {
                         <br />
                            {comment.body}
                         <br />
-                        <button onClick={() => delete_access_permission(comment.email,comment.id)}>delete</button>
-                        <button onClick={() => edit_access_permission(comment.email,comment.id)}>edit comment</button>
+                        <button onClick={() => access_permission(comment.email,comment.id,'delete')}>delete</button>
+                        <button onClick={() => access_permission(comment.email,comment.id,'edit')}>edit comment</button>
                         {updateActivecommentId === comment.id && (
                             <>
                                 <div>
                                     <Updatecomment
-                                       
                                         setData={setData}
                                         name={comment.name}
                                         id={comment.id}
@@ -92,4 +86,4 @@ const Comments = () => {
             </>
         )
 }
-export default Comments
+export default Comments;

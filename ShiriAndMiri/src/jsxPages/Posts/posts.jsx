@@ -25,11 +25,12 @@ const Posts=()=>{
     const [selectedPost, setSelectedPost] = useState(null);
     const [style, setStyle] = useState(null);
 
+    async function getPosts() {
+        let posts = await fetchData(`posts`) || [];
+        setData(posts);
+    }
+    
     useEffect(() => {
-        async function getPosts() {
-            let posts = await fetchData(`posts`) || [];
-            setData(posts);
-        }
         getPosts();
     }, []);
     const showComments = (postId) => {

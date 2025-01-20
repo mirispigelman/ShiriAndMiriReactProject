@@ -7,7 +7,9 @@ import router from './jsxPages/router.jsx';
 import ContextUserProvider from './jsxPages/ContextUser';
 
 createRoot(document.getElementById('root')).render(
-  <ContextUserProvider>
+  // <ContextUserProvider>
       <RouterProvider router={router}/>
-  </ContextUserProvider>
+  // </ContextUserProvider>
+
+
 )

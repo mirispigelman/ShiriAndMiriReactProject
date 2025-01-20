@@ -11,10 +11,11 @@ import Albums from "./Albums/albums.jsx";
 import Posts from "./Posts/posts.jsx";
 import Comments from "./Posts/Comments/comments.jsx";
 import Photos from "./Albums/Photos/photos.jsx";
+import ContextUserProvider from "./ContextUser.jsx";
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: <ContextUserProvider> <App /> </ContextUserProvider>    ,
         children: [
             { path: '/', element: <Navigate to="/login" replace /> },
             { path: 'login', element: <Login /> },

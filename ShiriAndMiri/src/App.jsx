@@ -4,8 +4,6 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import fetchData from './service/FetchData';
 import { ContextUser } from "./jsxPages/ContextUser";
 
-
-
 function App() {
   const navigate=useNavigate();
   const {setUser}=useContext(ContextUser);
@@ -20,7 +18,6 @@ function App() {
             navigate("/login"); 
         }
     } catch (error) {
-        console.error("Error fetching user:", error);
         alert("Error fetching user");
         navigate("/login"); 
     }
@@ -30,7 +27,7 @@ useEffect(() => {
     fetchUser();
 }, [navigate]);
 
-  return (
+return (
     <>
       <Outlet />
     </>

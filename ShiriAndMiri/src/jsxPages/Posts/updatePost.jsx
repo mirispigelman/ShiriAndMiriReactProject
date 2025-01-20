@@ -5,7 +5,7 @@ import handleUpdate from "../../service/handleUpdate";
 import handleChange from "../handleChangeInput";
 const UpdatePost = ({ body,title, setData, id }) => {
     const [newForm,setNewForm] = useState({title:title,body:body});
-
+   
     return (
         <>
             <input  name='title' value={newForm.title} onChange={handleChange(setNewForm)}/>

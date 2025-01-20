@@ -18,37 +18,38 @@ const Todos = () => {
     
     const [searchType, setSearchType] = useState('all');
     const [searchValue, setSearchValue] = useState('');
-    useEffect(() => {
-        async function getTodos() {
-            let todos = await fetchData(`todos?userId=${user.id}`) || [];
-            setData(todos);
-        }
-        getTodos();
-    }, []);
-    
+
+    async function getTodos() {
+        let todos = await fetchData(`todos?userId=${user.id}`) || [];
+        setData(todos);
+
+    }
     function sortBy(a,b,sortType){
-        if(sortType === 'id') return a.id - b.id;
+        if(sortType === 'id') return a.id.localeCompare(b.id);
         if(sortType === 'alfabetical') return a.title.localeCompare(b.title);
         if(sortType === 'completed') return b.completed - a.completed;
         if(sortType === 'random') return Math.random() - Math.random();
     }
-
     const handleCheckboxToggle = async (todo) => {
         try {
-            ///what is more efficient? to ask the server again or to do map?
             let responseTodo = await fetchData(`todos/${todo.id}`, 'PATCH', { completed: !todo.completed }) || [];
             console.log(responseTodo);
             setData(prevData => prevData.map(item => item.id === todo.id ? { ...item, completed: !item.completed } : item));
         }
         catch (e) { console.error('Error fetching:', e); }
     }
+
+    useEffect(() => {
+        getTodos();
+    }, []);
+
     console.log(user.id);
     console.log(data);
 
     return (
         <>
             <h1>Todos</h1>
-            <button onClick={() => setAddNew(!addNew)}>add new 'todo'</button>
+            <button onClick={() => setAddNew(!addNew)}>{addNew ? 'close' : 'add new todo'}</button>
             {addNew && (<>
                 <AddTodo setData={setData} />
             </>)}

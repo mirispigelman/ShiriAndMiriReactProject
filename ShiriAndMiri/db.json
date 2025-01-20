@@ -132,13 +132,13 @@
       "userId": "2",
       "id": "27",
       "title": "veritatis pariatur delectus",
-      "completed": true
+      "completed": false
     },
     {
       "userId": "2",
       "id": "28",
       "title": "nesciunt totam sit blanditiis sit",
-      "completed": false
+      "completed": true
     },
     {
       "userId": "2",
@@ -159,9 +159,9 @@
       "completed": true
     },
     {
-      "id": "b30c",
+      "id": "0688",
       "userId": "1",
-      "title": "kiss mammy",
+      "title": "say bey",
       "completed": true
     }
   ],
@@ -275,6 +275,13 @@
       "name": "beyyyyyyyyyyy",
       "email": "Sincere@april.biz",
       "body": "bey bey"
+    },
+    {
+      "id": "e2d4",
+      "postId": "3487",
+      "name": "write ",
+      "email": "Sincere@april.biz",
+      "body": "somthing"
     }
   ],
   "photos": [
@@ -309,7 +316,7 @@
     {
       "id": "5142",
       "albumId": "1",
-      "title": "pretty dog:)",
+      "title": "pretty dog",
       "url": "///!!!",
       "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIs55YYqbZw5eV_7sCXa_OCmb-raPssT_olw&s"
     },
@@ -319,13 +326,6 @@
       "title": "cutest puppies everrrr",
       "url": "//",
       "thumbnailUrl": "https://cdn.britannica.com/55/164255-050-AAADAF11/litter-Australian-Shepherd-puppies.jpg"
-    },
-    {
-      "id": "6375",
-      "albumId": "2",
-      "title": "ערכינא",
-      "url": "עארי",
-      "thumbnailUrl": "עארקי"
     },
     {
       "id": "4c20",
@@ -347,6 +347,13 @@
       "title": "dogii",
       "url": "//",
       "thumbnailUrl": "https://www.petfinder.co.il/wp-content/uploads/2020/10/%D7%A8%D7%95%D7%A2%D7%99-%D7%94%D7%9B%D7%A4%D7%A8-%D7%A0%D7%99%D7%91-%D7%A6%D7%93%D7%99%D7%A7-2-1-488x533.jpg"
+    },
+    {
+      "id": "69df",
+      "albumId": "1",
+      "title": ":)",
+      "url": "",
+      "thumbnailUrl": "https://www.dogsforgood.org/wp-content/uploads/2020/06/Dogs-For-Good-October-22-2019-308.jpg"
     }
   ]
 }

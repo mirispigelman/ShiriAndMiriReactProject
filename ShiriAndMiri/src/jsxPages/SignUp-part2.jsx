@@ -8,9 +8,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const SignUpPart2 = () => {
     const { setUser } = useContext(ContextUser)
     const location = useLocation();
-     const { username, password } = location.state || {}; // קריאה לנתונים שהועברו
+     const { username, password } = location.state || {}; 
     const navigate = useNavigate();
-    //need to get the user name and the password from SignUp
     const [form, setForm] = useState({
       name:'',
       username:username,
@@ -33,27 +32,7 @@ const SignUpPart2 = () => {
          bs : ''
       }
     }
-       /* mmmmm
-        {
-        name: '',
-        email: '',
-        phone: '',
-        adress: {
-            street: '',
-            suite: '',
-            city: '',
-            zipcode: '',
-            geo: {
-                lat: '',
-                lng: ''
-            }
-        },
-        company: {
-            companyName: '',
-            catchphrase: '',
-            business: '',
-        },
-    }*/);
+    );
     const update = (e) => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
@@ -72,31 +51,22 @@ const SignUpPart2 = () => {
     }
     const HandleForm = async (event) => {
         event.preventDefault();
-        //add new user to data base
         try {
             const response = await fetchData('users', 'POST', form);
-            console.log(response);
             setUser(response);
-            //save the user name in local storage
             localStorage.setItem("currentUser", JSON.stringify(response.id));
-            //go to your home page
             navigate(`/users/${response.id}/home`);
         }
-        catch (e) { console.error('Error fetching:', error); }
+        catch (e) { 
+            console.error('Error fetching:', error);
+            alert('Error fetching data');
+         }
     }
 
     return (
         <>
             <h3>please comlete the details</h3>
             <form onSubmit={HandleForm}>
-                {/* <MyInput
-                    type="text"
-                    name='id'
-                    form={form}
-                    placeholder="ID"
-                    update={update}
-                />
-                <br /> */}
                 <MyInput
                     type="text"
                     name='name'
@@ -220,7 +190,7 @@ const MyInput = ({ form, name, type, update, placeholder }) => {
         value={form[name]}
         placeholder={placeholder}
         onChange={update}
-    // required
+        required
     />
 }
 export default SignUpPart2

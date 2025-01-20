@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import App from "../App.jsx";
 import Home from "./Home/home.jsx"
-import Login from "./Login.jsx";
+import Login from "./login.jsx";
 import SignUp from "./SignUP.jsx";
 import ShowInfo from "./Home/showInfo.jsx";
 import SignUpPart2 from "./SignUp-part2.jsx";
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
                     },
                 ]
             },
-            {path:'*', element:<Navigate to="/home"/>}
+            {path:'*', element:<Navigate to="/login"/>}
         ]
     }
 ]);

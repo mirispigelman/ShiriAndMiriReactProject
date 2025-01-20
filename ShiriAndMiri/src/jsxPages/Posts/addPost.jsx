@@ -9,15 +9,22 @@ const AddPost = ({ setData }) => {
     const { user } = useContext(ContextUser);
     const [newData, setNewData] = useState({ userId: user.id, title: "",body: "" });
     
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleAdd(setData,`posts?userId=${user.id}`, newData)
+    };
+
     return (
         <>
-             <br />
-            <input placeholder="title" value={newData.title} onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))} />
+            <form className="add" onSubmit={handleSubmit}>
+            <br />
+            <input placeholder="title" value={newData.title} onChange={(e) => setNewData(prev => ({ ...prev, title: e.target.value }))} required/>
             <br />
             <textarea placeholder="body" value={newData.body} onChange={(e) => setNewData(prev => ({ ...prev, body: e.target.value }))} />
             <br />
-            <button onClick={()=>handleAdd(setData,`posts?userId=${user.id}`, newData)}>add</button>
-        </>
+            <button type="submit">add</button>
+            </form>
+             </>
     )
 }
 export default AddPost;

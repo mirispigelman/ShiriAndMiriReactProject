@@ -9,7 +9,7 @@ function App() {
   const {setUser}=useContext(ContextUser);
   const fetchUser = async () => {
     try {
-        const userId = localStorage.getItem("currentUser");//
+        const userId = localStorage.getItem("currentUser");
         console.log("use rId"+ userId);
         if (userId) {
             const userData = await fetchData(`users?id=${userId.slice(1,-1)}`); 

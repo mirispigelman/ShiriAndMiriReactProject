@@ -3,4 +3,4 @@ const handleChange = (setter) => (e) => {
     setter((prev) => ({ ...prev, [name]: value }));
 };
 
-export default handleChange
+export default handleChange;

@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react'
 import '../../../App.css'
-import { ContextUser } from '../../ContextUser.jsx'
 import { useParams } from "react-router-dom";
 import handleDelete from "../../../service/handleDelete.js"
 import UpdatePhoto from "./updatePhoto.jsx"
@@ -28,6 +27,7 @@ const Photos = () => {
     useEffect(() => {
             getPhotos();
     }, [start, hasMore]);
+
     if (data.length === 0) return (<>
         <h4>no photos</h4>
         <br />
@@ -41,7 +41,7 @@ const Photos = () => {
                     return (
                         <div key={photo.id} className="line">
                             <strong>{photo.id}</strong>
-                            <h3>{photo.title} || {photo.albumId}</h3>
+                            <h3>{photo.title}</h3>
                             <br />
                             <img src={photo.thumbnailUrl} alt={photo.title} />
                             <br />

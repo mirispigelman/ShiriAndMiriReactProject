@@ -13,18 +13,13 @@ import handleDelete from "../../service/handleDelete.js";
 const Posts=()=>{
     const navigate=useNavigate()
     const { user } = useContext(ContextUser);
-    
     const [data, setData] = useState([]);
-
     const [UpdateactivePostId, setUpdateactivePostId] = useState(null);
-
     const [showBody, setShowBody] = useState(null);
-
     const [addNew, setAddNew] = useState(false);
+    const [showphotos, setShowphotos] = useState(null);
 
-    const [openPostId, setOpenPostId] = useState(null);
-
-    const [searchType, setSearchType] = useState('all');
+    const [searchType, setSearchType] = useState('mine');
     const [searchValue, setSearchValue] = useState('');
 
     const [selectedPost, setSelectedPost] = useState(null);
@@ -38,9 +33,9 @@ const Posts=()=>{
         getPosts();
     }, []);
     const showComments = (postId) => {
-        if(openPostId === postId) return;
+        if(showphotos === postId) return;
         navigate(`${postId}/comments`);
-        setOpenPostId(openPostId === postId ? null : postId);
+        setShowphotos(showphotos === postId ? null : postId);
     };
 
     const access_permission=(userId,action,id)=>{
@@ -58,7 +53,7 @@ const Posts=()=>{
     return(
         <>
         <h1>Posts</h1>
-        <button onClick={() => setAddNew(!addNew)}>add new post</button>
+        <button onClick={() => setAddNew(!addNew)}>{addNew ? 'close' : 'add new post'}</button>
             {addNew && (<>
                 <AddPost setData={setData} />
             </>)}
@@ -96,6 +91,7 @@ const Posts=()=>{
                                 <button onClick={() => access_permission(post.userId,'edit',post.id)}>Edit Content</button>
                                 <button onClick={() => showComments(post.id)}>Show Comments</button>
                                 <button onClick={() => setShowBody(post.id)}>Show body</button>
+
                                 {showBody === post.id && (
                                     <>
                                         <br />
@@ -119,10 +115,10 @@ const Posts=()=>{
                                         <button onClick={() => setUpdateactivePostId(null)}>Close</button>
                                     </>
                                 )}
-                                {openPostId === post.id && (
+                                {showphotos === post.id && (
                                     <>
                                     <Outlet /> 
-                                    <button onClick={() => {setOpenPostId(null); setStyle(null)}}>Close</button>
+                                    <button onClick={() => {setShowphotos(null); navigate(".")}}>Close</button>
                                     </>
                                  )                            
                                 }

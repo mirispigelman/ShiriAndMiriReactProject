@@ -1,10 +1,8 @@
 import { useState } from "react";
 import '../App.css';
-import {Link, Navigate, Routes,Route, Outlet} from 'react-router-dom';
 import fetchData from "../service/FetchData.js";
 import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { use } from "react";
+
 const SignUp=()=> {
     const navigate = useNavigate();
      const [userName, setUserName] = useState('')
@@ -21,24 +19,20 @@ const SignUp=()=> {
             alert("the passwords are not the same");
             return;
         }
-        ////need to find in the data base if the user exists 
-        // console.log("getData")
-            try{
-                console.log(userName);
-                const user = await fetchData(`users?username=${userName}`);
-                // console.log("לללל"+user)
-                if (user[0]) {
-                    alert("userNmae or password is not avilable");
-                    return;
-                }
-                else{
-                    //go to your signUp-part2 page
-                     navigate("/signUpPart2",{state:{userName,password}});
-                }
-            }catch(e){
-                console.error('Error fetching:', error);
-                alert(`{Error fetching data ${e}}`);
+        try{
+            console.log(userName);
+            const user = await fetchData(`users?username=${userName}`);
+            if (user[0]) {
+                alert("userNmae or password is not avilable");
+                return;
             }
+            else{
+                navigate("/signUpPart2",{state:{userName,password}});
+            }
+        }catch(e){
+            console.error('Error fetching:', error);
+            alert(`{Error fetching data ${e}}`);
+        }
     }
     return (
         <>  
@@ -66,16 +60,15 @@ const SignUp=()=> {
             />
             <br></br>
             <button  onClick={HandleForm} type='submit'>press to finish the process</button>
-
             </form>
-            
             <p>
         
-        <button onClick={()=>{navigate("/login")}} style={{ color: "blue", textDecoration: "underline", background: "none", border: "none", cursor: "pointer" }}>
-        Already have an account? go to login
-        </button>
-         </p>
+            <button onClick={()=>{navigate("/login")}} className="signUp">
+            Already have an account? go to login
+            </button>
+            </p>
         </>
     );
 }
-export default SignUp
+
+export default SignUp;

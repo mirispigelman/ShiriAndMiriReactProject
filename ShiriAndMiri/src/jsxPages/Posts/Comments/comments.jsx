@@ -12,23 +12,19 @@ const Comments = () => {
         const { postId } = useParams();
         const { user } = useContext(ContextUser);
         const [data, setData] = useState([]);
-        const [addNew, setAddNew] = useState(false);
-        const [searchType, setSearchType] = useState('all');
-        const [searchValue, setSearchValue] = useState('');
         const [updateActivecommentId, setUpdateActivecommentId] = useState(null);
     
+        async function getComments() {
+            let comments = await fetchData(`comments?postId=${postId}` ) || [];
+            comments= comments.filter(comment => comment.postId != null);
+            setData(comments);
+        }
+
         useEffect(() => {
-            async function getComments() {
-                let comments = await fetchData(`comments?postId=${postId}` ) || [];
-                comments= comments.filter(comment => comment.postId != null);
-                setData(comments);
-            }
             getComments();
         }, [postId]);
 
         const access_permission=(email,id,action)=>{
-            console.log(email)
-            console.log(user.email)
             if(email!=user.email) {
                 alert(`you can't ${action} others comments`);
             }
@@ -50,7 +46,6 @@ const Comments = () => {
             <>
             <div className="comment">
                 {data.map((comment) => {
-                               
                  return (
                     <div key={comment.id} className="line">
                         <strong>{comment.id}</strong>
@@ -72,7 +67,8 @@ const Comments = () => {
                                         body={comment.body}
                                     />
                                 </div>
-                                <button onClick={() => setUpdateActivecommentId(null)}>Close</button>
+                                <br/>
+                                <button onClick={() => {setUpdateActivecommentId(null)}}>Close</button>
                             </>
                         )} 
                     </div>

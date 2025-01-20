@@ -8,13 +8,11 @@ async function fetchData(navigateString, methodType = "GET", dataContent = null)
     method: methodType,
   };
 
-  // Add the dataContent to the request body if it exists
   if (dataContent !== null) {
     options.body = JSON.stringify(dataContent);
   }
 
   const response = await fetch(`http://localhost:3000/${navigateString}`, options);
-  console.log(`http://localhost:3000/${navigateString}`);
   const data = await response.json();
   console.log(data);
   return data;

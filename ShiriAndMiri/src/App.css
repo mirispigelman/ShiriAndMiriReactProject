@@ -60,6 +60,9 @@ form{
   text-shadow: 2px 2px 4px rgba(74, 72, 72, 0.5);
 
 }
+.add{
+  background-color: #fff7e6;
+}
 ul{
   background-Color:#FF9800;
   padding:10px;
@@ -79,12 +82,6 @@ ul{
   border-Radius:20px;
   color: white;
   text-shadow: 10px rgba(74, 72, 72, 0.5);
-  
-  /* display: flex;
-  flex-wrap: wrap; 
-  gap: 6px; 
-  justify-content: space-between; 
-  align-items: flex-start;  */
 }
 .line{
   background-color: white;
@@ -133,4 +130,11 @@ div{
 img{
   width: 250px;
   height: 200px;
+}
+button.signUp{
+  color: "blue" !important;
+  text-decoration: "none" !important;
+  background: "none" !important;
+  border: "none" !important;
+  cursor: "pointer" !important;
 }

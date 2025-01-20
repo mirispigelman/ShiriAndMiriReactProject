@@ -6,11 +6,10 @@ import '../../App.css'
 const ShowInfo=()=>{
     const {user}=useContext(ContextUser);
 
-    console.log(user);
     return(
         <div>
               {Object.entries(user).map(([key, value]) => {
-                if (key === "website") return null; // דילוג על website
+                if (key === "website") return null;
                 return (
                     <ul key={key}>
                         <strong>{key}:</strong>

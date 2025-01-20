@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import '../../App.css'
 import { Outlet } from 'react-router-dom'
 import { ContextUser } from "../ContextUser";
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 const Home = () => {
     const navigate = useNavigate();
 
-    const { user, resetUser , setUser} = useContext(ContextUser);
+    const { user, resetUser} = useContext(ContextUser);
     
     useEffect(() => {
         if (!user || localStorage.getItem("currentUser") === "") {
@@ -20,6 +20,7 @@ const Home = () => {
         resetUser();
         navigate("/login", { replace: true });
     }
+    
     return (<>
         <>
             <h3>{user.name},Welcome back!</h3>

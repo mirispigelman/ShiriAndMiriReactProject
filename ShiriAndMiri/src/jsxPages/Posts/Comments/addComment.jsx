@@ -5,21 +5,25 @@ import  { ContextUser } from '../../ContextUser'
 import { useParams } from "react-router-dom";
 import handleAdd from "../../../service/handleAdd.js";
 
-const AddData = ({ setData }) => {
+const AddComment = ({ setData }) => {
     const { postId } = useParams();
     const {user}=useContext(ContextUser);
     const [newData, setNewData] = useState({ postId: postId, name: "name", email: user.email, body: "body" });
-    console.log(user.email)
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleAdd(setData, `comments?postId=${postId}`, newData);
+    };
     return (
         <>
+        <form onSubmit={handleSubmit} className="add">
         <br/>
-            <input placeholder={newData.name}  onChange={(e) => setNewData(prev => ({ ...prev, name: e.target.value }))} />
+            <input placeholder={newData.name}  onChange={(e) => setNewData(prev => ({ ...prev, name: e.target.value })) } required/>
             <br/>
             <textarea placeholder={newData.body}  onChange={(e) => setNewData(prev => ({ ...prev, body: e.target.value }))} />
             <br/>
-            <button onClick={()=>handleAdd(setData,`comments?postId=${postId}`, newData)}>add comment</button>
-        </>
+            <button type="submit">add comment</button>
+        </form>
+       </>
     )
 }
-export default AddData;
+export default AddComment;

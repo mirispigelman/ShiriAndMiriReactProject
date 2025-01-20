@@ -3,7 +3,6 @@ import '../../App.css'
 import { Outlet } from 'react-router-dom'
 import { ContextUser } from "../ContextUser";
 import { useNavigate } from "react-router-dom"
-import fetchData from "../../service/FetchData";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -14,9 +13,6 @@ const Home = () => {
         if (!user || localStorage.getItem("currentUser") === "") {
             navigate("/login", { replace: true });
         }
-        // else{
-        //     setUser(()=>fetchData(`users/${user.id}`));
-        // }
     }, [user, navigate]);
 
 

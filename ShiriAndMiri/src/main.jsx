@@ -10,8 +10,4 @@ createRoot(document.getElementById('root')).render(
   <ContextUserProvider>
       <RouterProvider router={router}/>
   </ContextUserProvider>
-
-  // <StrictMode>
-   //<App />
-  // </StrictMode>
 )

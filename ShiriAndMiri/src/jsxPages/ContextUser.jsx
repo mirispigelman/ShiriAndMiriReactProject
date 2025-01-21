@@ -12,7 +12,6 @@ const ContextUserProvider = ({children}) => {
 
     useEffect(() => {
         const idExist = JSON.parse(localStorage.getItem('currentUser'));
-        console.log(idExist);
         if ( idExist ) {
           fetchUserDetails(idExist);
         }
@@ -25,7 +24,6 @@ const ContextUserProvider = ({children}) => {
         try {
             const DatailsUser = await fetchData(`users?id=${idExist}`);
             setUser(DatailsUser[0]);
-            console.log(DatailsUser);
         } catch (error) {
             navigate('/login');
             alert('Error fetching user details:', error);

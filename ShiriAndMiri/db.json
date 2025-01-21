@@ -119,7 +119,7 @@
     {
       "userId": "1",
       "id": "4",
-      "title": "give gift",
+      "title": "give gift!!",
       "completed": false
     },
     {
@@ -163,15 +163,15 @@
       "userId": "1",
       "title": "say bey",
       "completed": true
+    },
+    {
+      "id": "93af",
+      "userId": "1",
+      "title": "SS",
+      "completed": false
     }
   ],
   "posts": [
-    {
-      "id": "3487",
-      "userId": "1",
-      "title": "my trip to africa",
-      "body": "we went to the montains  to see the view"
-    },
     {
       "userId": "2",
       "id": "17",
@@ -191,10 +191,10 @@
       "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas"
     },
     {
-      "id": "cacc",
+      "id": "e330",
       "userId": "1",
-      "title": "my childhood",
-      "body": "it was long ago:)\nonce upon a time"
+      "title": "hhhhh",
+      "body": ""
     }
   ],
   "albums": [
@@ -270,25 +270,18 @@
       "body": "ratione ut magni voluptas\nexplicabo natus quia consequatur nostrum aut\nomnis enim in qui illum\naut atque laboriosam aliquid blanditiis quisquam et laborum"
     },
     {
-      "id": "dbfa",
-      "postId": null,
-      "name": "beyyyyyyyyyyy",
+      "id": "fa1d",
+      "postId": "e330",
+      "name": "jjjjjjj",
       "email": "Sincere@april.biz",
-      "body": "bey bey"
-    },
-    {
-      "id": "e2d4",
-      "postId": "3487",
-      "name": "write ",
-      "email": "Sincere@april.biz",
-      "body": "somthing"
+      "body": "body"
     }
   ],
   "photos": [
     {
       "albumId": "2",
       "id": "61",
-      "title": "cool dog",
+      "title": "cool dog!",
       "url": "eholder.com/600/e403d1",
       "thumbnailUrl": "https://www.kolbopet.co.il/wp-content/uploads/2024/08/lovely-pet-portrait-isolated-1-1200x800.jpg"
     },
